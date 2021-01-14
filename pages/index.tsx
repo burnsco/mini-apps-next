@@ -4,11 +4,17 @@ import { Layout } from "@ui/index"
 const IndexPage = () => (
   <Layout>
     <Heading>
-      A place to store the apps I first made in my coding journey.
+      Here lies a place to store the apps I first made in my coding journey.{" "}
+      <span role="img" aria-label="COOL">
+        🤸
+      </span>
     </Heading>
-    <Heading>
-      Also a place to experiment with new things and store my small apps I will
-      make in the future
+    <Heading mt={4}>
+      Also contains experiments, practice apps, goofy styling and other fun
+      things.
+      <span role="img" aria-label="FUN">
+        🤹
+      </span>
     </Heading>
   </Layout>
 )

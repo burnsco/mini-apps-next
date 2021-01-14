@@ -10,7 +10,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
       flexDirection="column"
       justifyContent="center"
       minWidth="100%"
-      minHeight="100vh"
+      minHeight="95"
       wordBreak="break-word"
     >
       <Container>{children}</Container>

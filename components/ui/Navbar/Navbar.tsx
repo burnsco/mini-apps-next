@@ -13,20 +13,46 @@ import { NextChakraLink } from "@common/index"
 import { useRouter } from "next/dist/client/router"
 
 const links = [
-  { id: "app-index", title: "Home", path: "/" },
-  { id: "dice-game", title: "Dice Roll", path: "/dice/" },
-  { id: "lottery-generator", title: "Lottery Numbers", path: "/lottery/" },
-  { id: "luggage-tracker", title: "Luggage Tracker", path: "/luggage/" },
-  { id: "pizza-calculator", title: "Pizza Calculator", path: "/pizza/" },
-  { id: "monsters-rolodex", title: "Monsters Rolodex", path: "/monsters/" },
-  { id: "coin-flip", title: "Flip Coin", path: "/coins/" }
+  { id: "app-index", title: "Home", path: "/", icon: "🏠" },
+
+  { id: "dice-game", title: "Dice Roll", path: "/dice/", icon: "🎲" },
+
+  {
+    id: "lottery-generator",
+    title: "Lottery Numbers",
+    path: "/lottery/",
+    icon: "🎰"
+  },
+
+  {
+    id: "luggage-tracker",
+    title: "Luggage Tracker",
+    path: "/luggage/",
+    icon: "🧳"
+  },
+
+  {
+    id: "pizza-calculator",
+    title: "Pizza Calculator",
+    path: "/pizza/",
+    icon: "🍕"
+  },
+
+  {
+    id: "monsters-rolodex",
+    title: "Monsters Rolodex",
+    path: "/monsters/",
+    icon: "👹"
+  },
+
+  { id: "coin-flip", title: "Flip Coin", path: "/coins/", icon: "🪙" }
 ]
 
 function HeaderContent() {
   return (
     <Box
       width="100%"
-      display={{ sm: "none", md: "none", lg: "block", xl: "block" }}
+      display={{ sm: "none", md: "none", lg: "none", xl: "block" }}
     >
       <Flex
         aria-label="Primary"
@@ -48,6 +74,13 @@ function HeaderContent() {
             transition="all 0.3s"
             key={link.id}
           >
+            <chakra.span
+              mr={1}
+              role="img"
+              aria-label={`menu item ${link.title}`}
+            >
+              {link.icon}
+            </chakra.span>
             {link.title}
           </NextChakraLink>
         ))}
@@ -58,6 +91,7 @@ function HeaderContent() {
 
 function HeaderContentNav() {
   const router = useRouter()
+
   return (
     <Box
       aria-label="Mobile Navigation"
@@ -70,7 +104,9 @@ function HeaderContentNav() {
     >
       <Menu>
         <MenuButton as={Button} rightIcon={<AppMenuIcon />}>
-          APPS
+          {router.pathname === "/"
+            ? "Apps"
+            : router.pathname.split("").slice(1).join("")}
         </MenuButton>
         <MenuList>
           {links.map(link => (
@@ -78,6 +114,13 @@ function HeaderContentNav() {
               key={`nav-link-mobile-${link.title}`}
               onClick={() => router.push(link.path)}
             >
+              <chakra.span
+                mr={1}
+                role="img"
+                aria-label={`menu item ${link.title}`}
+              >
+                {link.icon}
+              </chakra.span>
               {link.title}
             </MenuItem>
           ))}
