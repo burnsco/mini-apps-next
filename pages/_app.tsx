@@ -1,4 +1,3 @@
-import { ChakraProvider, theme } from "@chakra-ui/react"
 import { AppProps } from "next/app"
 import Head from "next/head"
 
@@ -10,9 +9,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <ChakraProvider theme={theme} resetCSS>
-        <Component {...pageProps} />
-      </ChakraProvider>
+
+      <Component {...pageProps} />
     </>
   )
 }

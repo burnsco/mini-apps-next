@@ -1,10 +1,10 @@
 import { Heading } from "@chakra-ui/react"
-import React from "react"
+import { Layout } from "@ui/index"
 
 const MonstersRolodexPage = () => (
-  <>
+  <Layout>
     <Heading>Monsters Rolodex</Heading>
-  </>
+  </Layout>
 )
 
 export default MonstersRolodexPage

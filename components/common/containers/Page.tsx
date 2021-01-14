@@ -1,6 +1,6 @@
 import { Box, BoxProps } from "@chakra-ui/react"
 
-export const Container = (props: BoxProps) => (
+export const PageContainer = (props: BoxProps) => (
   <Box
     w="full"
     pb="12"
@@ -12,4 +12,4 @@ export const Container = (props: BoxProps) => (
   />
 )
 
-export default Container
+export default PageContainer

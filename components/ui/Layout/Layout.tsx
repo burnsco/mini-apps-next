@@ -1,8 +1,11 @@
-import { Flex } from "@chakra-ui/react"
+import { ChakraProvider, Flex, theme } from "@chakra-ui/react"
+import { Container } from "@common/index"
 import PropTypes from "prop-types"
+import { Navbar } from ".."
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <>
+  <ChakraProvider theme={theme} resetCSS>
+    <Navbar />
     <Flex
       flexDirection="column"
       justifyContent="center"
@@ -10,9 +13,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
       minHeight="100vh"
       wordBreak="break-word"
     >
-      {children}
+      <Container>{children}</Container>
     </Flex>
-  </>
+  </ChakraProvider>
 )
 
 Layout.propTypes = {
