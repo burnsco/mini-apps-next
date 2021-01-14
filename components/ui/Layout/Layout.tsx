@@ -13,7 +13,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
       minHeight="95"
       wordBreak="break-word"
     >
-      <Container>{children}</Container>
+      <Container mt={5}>{children}</Container>
     </Flex>
   </ChakraProvider>
 )

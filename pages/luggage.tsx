@@ -1,10 +1,9 @@
 import { Heading } from "@chakra-ui/react"
-import { Layout } from "@ui/index"
 
 const LuggagePackTrackPage = () => (
-  <Layout>
-    <Heading>Coins</Heading>
-  </Layout>
+  <>
+    <Heading>Luggage</Heading>
+  </>
 )
 
 export default LuggagePackTrackPage

@@ -75,7 +75,7 @@ function HeaderContent() {
             key={link.id}
           >
             <chakra.span
-              mr={1}
+              mr={2}
               role="img"
               aria-label={`menu item ${link.title}`}
             >
@@ -115,7 +115,7 @@ function HeaderContentNav() {
               onClick={() => router.push(link.path)}
             >
               <chakra.span
-                mr={1}
+                mr={2}
                 role="img"
                 aria-label={`menu item ${link.title}`}
               >
