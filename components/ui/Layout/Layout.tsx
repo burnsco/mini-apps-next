@@ -1,4 +1,5 @@
 import { ChakraProvider, Flex, theme } from "@chakra-ui/react"
+import PageTransition from "@common/Animated/page-transition"
 import { Container } from "@common/index"
 import PropTypes from "prop-types"
 import { Navbar } from ".."
@@ -13,7 +14,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
       minHeight="95"
       wordBreak="break-word"
     >
-      <Container mt={5}>{children}</Container>
+      <Container mt={5}>
+        <PageTransition>{children}</PageTransition>
+      </Container>
     </Flex>
   </ChakraProvider>
 )

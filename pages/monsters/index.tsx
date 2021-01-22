@@ -1,5 +1,6 @@
 import { Box, Heading, Image, Input, SimpleGrid, Text } from "@chakra-ui/react"
 import { GetStaticProps, InferGetStaticPropsType } from "next"
+import { useRouter } from "next/dist/client/router"
 import { useState } from "react"
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -27,6 +28,7 @@ const MonstersRolodexPage = ({
   users
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [input, setInput] = useState("")
+  const router = useRouter()
   const filteredUsers = users.filter((user: any) =>
     user.name.toLowerCase().includes(input.toLowerCase())
   )
@@ -45,6 +47,7 @@ const MonstersRolodexPage = ({
         <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={4}>
           {filteredUsers.map((user: User) => (
             <Box
+              onClick={() => router.push(`/monsters/${user.id}`)}
               key={user.id}
               maxW="sm"
               borderWidth="1px"
