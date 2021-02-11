@@ -22,6 +22,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "postinstall": "husky install",
     "find:unused": "next-unused",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",

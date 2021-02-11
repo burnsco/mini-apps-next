@@ -8,9 +8,9 @@ import {
   MenuItem,
   MenuList
 } from "@chakra-ui/react"
-import AppMenuIcon from "@common/Icons/AppMenu"
-import { NextChakraLink } from "@common/index"
 import { useRouter } from "next/dist/client/router"
+import AppMenuIcon from "src/components/common/Icons/AppMenu"
+import { NextChakraLink } from "src/components/common/index"
 
 const links = [
   { id: "app-index", title: "Home", path: "/", icon: "🏠" },

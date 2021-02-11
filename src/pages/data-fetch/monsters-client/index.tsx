@@ -1,7 +1,7 @@
 import { Alert } from "@chakra-ui/alert"
 import { Spinner } from "@chakra-ui/spinner"
+import { fetcher } from "src/utils/fetcher"
 import useSWR from "swr"
-import { fetcher } from "utils/fetcher"
 import Monsters from "./monsters"
 
 export default function MonstersRolodexPage() {

@@ -19,11 +19,11 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@common/*": ["components/common/*"],
-      "@sections/*": ["components/sections/*"],
-      "@ui/*": ["components/ui/*"],
+      "@common/*": ["src/components/common/*"],
+      "@sections/*": ["src/components/sections/*"],
+      "@ui/*": ["src/components/ui/*"],
       "@configs/*": ["configs/*"],
-      "@pages/*": ["pages/*"],
+      "@pages/*": ["src/pages/*"],
       "@theme/*": ["theme/*"]
     }
   },

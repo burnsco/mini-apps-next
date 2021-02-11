@@ -1,7 +1,7 @@
 import { ChakraProvider, Flex, theme } from "@chakra-ui/react"
-import PageTransition from "@common/Animated/page-transition"
-import { Container } from "@common/index"
 import PropTypes from "prop-types"
+import PageTransition from "src/components/common/Animated/page-transition"
+import { Container } from "src/components/common/index"
 import { Navbar } from ".."
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (

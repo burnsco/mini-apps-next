@@ -1,6 +1,6 @@
 import { Box, Center, Image, Text } from "@chakra-ui/react"
-import { NextChakraLink } from "@common/index"
 import { GetStaticPaths, GetStaticProps } from "next"
+import { NextChakraLink } from "src/components/common/index"
 
 type User = {
   id: number
