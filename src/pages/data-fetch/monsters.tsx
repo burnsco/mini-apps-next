@@ -14,6 +14,10 @@ export default function Monsters(users: User[]) {
   return (
     <main>
       <Heading>Monsters Rolodex</Heading>
+      <Text>
+        Fetch data in every possible way, use different types, tables, cool
+        stuff
+      </Text>
       <Input
         value={input}
         onChange={e => setInput(e.target.value)}
