@@ -50,7 +50,11 @@ const DiceRoll = () => {
     const tiles = []
     for (let i = 0; i < 100; i++) {
       tiles.push(
-        <Box bg={totalScore === i ? "blue" : "tomato"} height="20px" />
+        <Box
+          key={`tile-${i}`}
+          bg={totalScore === i ? "blue" : "tomato"}
+          height="20px"
+        />
       )
     }
     return tiles
