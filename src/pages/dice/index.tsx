@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic"
 
-const DiceRollData = dynamic(() => import("./dice"))
+const DiceRoll = dynamic(() => import("@apps/DiceRoller"))
 
-const DiceRollView = () => <DiceRollData />
+const DiceRollPage = () => <DiceRoll />
 
-export default DiceRollView
+export default DiceRollPage

@@ -9,7 +9,6 @@ import {
 import { useState } from "react"
 import { GiRollingDiceCup } from "react-icons/gi"
 import PageTransition from "src/components/common/Animated/page-transition"
-import getRandomInt from "../../utils/getRandomInt"
 import DiceTable from "./dice-table"
 import RenderDie from "./renderDice"
 

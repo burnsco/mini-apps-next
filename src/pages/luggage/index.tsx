@@ -1,9 +1,7 @@
-import { Heading } from "@chakra-ui/react"
+import dynamic from "next/dynamic"
 
-const LuggagePackTrackPage = () => (
-  <>
-    <Heading>Luggage</Heading>
-  </>
-)
+const LuggageTracker = dynamic(() => import("@apps/LuggageTracker"))
+
+const LuggagePackTrackPage = () => <LuggageTracker />
 
 export default LuggagePackTrackPage

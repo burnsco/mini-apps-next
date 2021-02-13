@@ -1,9 +1,7 @@
-import { Heading } from "@chakra-ui/react"
+import dynamic from "next/dynamic"
 
-const PizzaCalculatorPage = () => (
-  <>
-    <Heading>Pizza Calculator</Heading>
-  </>
-)
+const PizzaCalculator = dynamic(() => import("@apps/PizzaCalculator"))
 
-export default PizzaCalculatorPage
+const LuggagePackTrackPage = () => <PizzaCalculator />
+
+export default LuggagePackTrackPage

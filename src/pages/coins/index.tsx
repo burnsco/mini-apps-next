@@ -1,9 +1,7 @@
-import { Heading } from "@chakra-ui/react"
+import dynamic from "next/dynamic"
 
-const CoinFlipPage = () => (
-  <>
-    <Heading>Coins</Heading>
-  </>
-)
+const CoinFlipper = dynamic(() => import("@apps/CoinFlipper"))
 
-export default CoinFlipPage
+const CoinFlipperPage = () => <CoinFlipper />
+
+export default CoinFlipperPage

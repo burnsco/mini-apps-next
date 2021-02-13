@@ -43,7 +43,7 @@
   "dependencies": {
     "@apollo/client": "^3.3.9",
     "@chakra-ui/icons": "^1.0.5",
-    "@chakra-ui/react": "^1.3.2",
+    "@chakra-ui/react": "^1.3.3",
     "@chakra-ui/theme-tools": "1.0.4",
     "@emotion/react": "11.1.5",
     "@emotion/styled": "11.1.5",
@@ -83,14 +83,20 @@
   },
   "next-unused": {
     "alias": {
+      "@apps/*": [
+        "src/components/apps/*"
+      ],
       "@common/*": [
-        "components/common/*"
+        "src/components/common/*"
       ],
       "@ui/*": [
-        "components/ui/*"
+        "src/components/ui/*"
       ],
       "@pages/*": [
-        "pages/*"
+        "src/pages/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
       ]
     },
     "debug": true,
