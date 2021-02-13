@@ -1,4 +1,11 @@
-import { Box, Button, Flex, Heading, HStack } from "@chakra-ui/react"
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  HStack,
+  SimpleGrid
+} from "@chakra-ui/react"
 import { useState } from "react"
 import { GiRollingDiceCup } from "react-icons/gi"
 import PageTransition from "src/components/common/Animated/page-transition"
@@ -8,12 +15,10 @@ import RenderDie from "./renderDice"
 
 const DiceRoll = () => {
   const [rolling, setRolling] = useState<boolean>(false)
-
   const [currentGameData, setCurrentGameData] = useState<CurrentGame>({
     number: 1,
-    roll: [1, 5]
+    roll: [0, 0]
   })
-
   const [data, setData] = useState<CurrentGame[]>([])
 
   function handleRoll() {
@@ -36,11 +41,20 @@ const DiceRoll = () => {
   }
 
   const currData = [...data, currentGameData]
-
   const totalScore = currData
     .map(c => c.roll)
     .map(a => a.reduce((a, b) => a + b))
     .reduce((a, b) => a + b)
+
+  const tileMaker = (totalScore: number) => {
+    const tiles = []
+    for (let i = 0; i < 100; i++) {
+      tiles.push(
+        <Box bg={totalScore === i ? "blue" : "tomato"} height="20px" />
+      )
+    }
+    return tiles
+  }
 
   return (
     <PageTransition>
@@ -60,6 +74,7 @@ const DiceRoll = () => {
             Roll
           </Button>
           <Heading>Total Score: ({totalScore})</Heading>
+          <Heading as="h4"> {totalScore >= 100 ? `YOU WIN!` : null}</Heading>
         </Flex>
         <Flex>
           <Box w="50%" h="100%">
@@ -67,6 +82,9 @@ const DiceRoll = () => {
               <RenderDie dieOne={currentGameData.roll[0]} />
               <RenderDie dieTwo={currentGameData.roll[1]} />
             </HStack>
+            <SimpleGrid columns={10} row="auto" spacingX="2px" spacingY="2px">
+              {tileMaker(totalScore)}
+            </SimpleGrid>
           </Box>
           <Box w="50%">
             <DiceTable currentGameData={currData} />
