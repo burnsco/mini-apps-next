@@ -4,3 +4,8 @@ type User = {
   email: string
   website: string
 }
+
+type CurrentGame = {
+  number: number
+  roll: number[]
+}

@@ -9,7 +9,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <Navbar />
     <Flex
       flexDirection="column"
-      justifyContent="center"
       minWidth="100%"
       minHeight="95vh"
       wordBreak="break-word"

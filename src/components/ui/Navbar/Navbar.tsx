@@ -2,15 +2,17 @@ import {
   Box,
   Button,
   chakra,
-  Flex,
+  IconButton,
   Menu,
   MenuButton,
   MenuItem,
-  MenuList
+  MenuList,
+  useColorMode,
+  useColorModeValue
 } from "@chakra-ui/react"
 import { useRouter } from "next/dist/client/router"
+import { FaMoon, FaSun } from "react-icons/fa"
 import AppMenuIcon from "src/components/common/Icons/AppMenu"
-import { NextChakraLink } from "src/components/common/index"
 
 const links = [
   { id: "app-index", title: "Home", path: "/", icon: "🏠" },
@@ -48,48 +50,10 @@ const links = [
   { id: "coin-flip", title: "Flip Coin", path: "/coins/", icon: "🪙" }
 ]
 
-function HeaderContent() {
-  return (
-    <Box
-      width="100%"
-      display={{ sm: "none", md: "none", lg: "none", xl: "block" }}
-    >
-      <Flex
-        aria-label="Primary"
-        as="nav"
-        justifyContent="space-evenly"
-        alignItems="center"
-        p={[1, 2, 3]}
-      >
-        {links.map(link => (
-          <NextChakraLink
-            href={link.path}
-            fontSize={["xs", "sm"]}
-            aria-label={`Navigation Link ${link.id}`}
-            fontWeight={400}
-            _hover={{
-              color: "blue"
-            }}
-            display="block"
-            transition="all 0.3s"
-            key={link.id}
-          >
-            <chakra.span
-              mr={2}
-              role="img"
-              aria-label={`menu item ${link.title}`}
-            >
-              {link.icon}
-            </chakra.span>
-            {link.title}
-          </NextChakraLink>
-        ))}
-      </Flex>
-    </Box>
-  )
-}
-
 function HeaderContentNav() {
+  const { toggleColorMode: toggleMode } = useColorMode()
+  const text = useColorModeValue("dark", "light")
+  const SwitchIcon = useColorModeValue(FaMoon, FaSun)
   const router = useRouter()
 
   return (
@@ -100,7 +64,6 @@ function HeaderContentNav() {
       alignItems="center"
       p={[1, 2, 3]}
       width="full"
-      display={{ sm: "block", md: "block", lg: "block", xl: "none" }}
     >
       <Menu>
         <MenuButton as={Button} rightIcon={<AppMenuIcon />}>
@@ -126,6 +89,16 @@ function HeaderContentNav() {
           ))}
         </MenuList>
       </Menu>
+      <IconButton
+        size="md"
+        fontSize="lg"
+        aria-label={`Switch to ${text} mode`}
+        variant="ghost"
+        color="current"
+        ml="3"
+        onClick={toggleMode}
+        icon={<SwitchIcon />}
+      />
     </Box>
   )
 }
@@ -134,7 +107,6 @@ function Navbar() {
   return (
     <chakra.div width="full">
       <HeaderContentNav />
-      <HeaderContent />
     </chakra.div>
   )
 }
