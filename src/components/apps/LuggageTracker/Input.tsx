@@ -8,6 +8,7 @@ const LuggageTrackerInput: FC<{}> = () => {
 
   const handleClick = (e: any) => {
     e.preventDefault()
+
     itemsVar([
       ...itemsVar(),
       {
@@ -23,6 +24,7 @@ const LuggageTrackerInput: FC<{}> = () => {
     <form onSubmit={handleClick}>
       <InputGroup>
         <Input
+          autoFocus
           pr="3.2rem"
           value={input}
           placeholder="Item to pack..."
