@@ -16,9 +16,14 @@ type VisibilityFilter = {
 }
 
 type LuggageItem = {
-  id: number
+  id: string
   text: string
   completed: boolean
 }
 
+type SetFilterType = {
+  setFilter: (filter: VisibilityFilter) => void
+}
+
 type LuggageItems = LuggageItem[]
+type VisibilityFilters = VisibilityFilter[]

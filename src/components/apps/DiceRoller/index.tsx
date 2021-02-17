@@ -6,6 +6,7 @@ import {
   HStack,
   SimpleGrid
 } from "@chakra-ui/react"
+import getRandomInt from "@utils/getRandomInt"
 import { useState } from "react"
 import { GiRollingDiceCup } from "react-icons/gi"
 import PageTransition from "src/components/common/Animated/page-transition"

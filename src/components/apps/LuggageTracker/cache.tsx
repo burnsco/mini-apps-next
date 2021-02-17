@@ -1,5 +1,4 @@
 import { InMemoryCache, makeVar, ReactiveVar } from "@apollo/client"
-import { VisibilityFilters } from "./visibility-filter"
 
 export const cache: InMemoryCache = new InMemoryCache({
   typePolicies: {
@@ -10,9 +9,14 @@ export const cache: InMemoryCache = new InMemoryCache({
             return itemsVar()
           }
         },
-        visibilityFilter: {
+        visibilityFilters: {
           read() {
-            return visibilityFilterVar()
+            return visibilityFiltersVar()
+          }
+        },
+        activeFilter: {
+          read() {
+            return activeFilterVar()
           }
         }
       }
@@ -20,22 +24,35 @@ export const cache: InMemoryCache = new InMemoryCache({
   }
 })
 
-/**
- * Set initial values when we create cache variables.
- */
-
 const initialState: LuggageItems = [
   {
-    id: 0,
+    id: "asdfsd09",
     completed: false,
     text: "Hairbrush"
+  }
+]
+const filters: VisibilityFilters = [
+  {
+    id: "show_all",
+    displayName: "All"
+  },
+  {
+    id: "show_completed",
+    displayName: "Completed"
+  },
+  {
+    id: "show_active",
+    displayName: "Active"
   }
 ]
 
 export const itemsVar: ReactiveVar<LuggageItems> = makeVar<LuggageItems>(
   initialState
 )
-
-export const visibilityFilterVar = makeVar<VisibilityFilter>(
-  VisibilityFilters.SHOW_ALL
+export const visibilityFiltersVar: ReactiveVar<VisibilityFilters> = makeVar<VisibilityFilters>(
+  filters
 )
+export const activeFilterVar: ReactiveVar<VisibilityFilter> = makeVar({
+  id: "show_all",
+  displayName: "All"
+})

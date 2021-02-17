@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic"
 
-const LuggageTracker = dynamic(() => import("@apps/LuggageTracker"))
+const LuggageTracker = dynamic(() => import("@apps/LuggageTracker/container"))
 
 const LuggagePackTrackPage = () => <LuggageTracker />
 

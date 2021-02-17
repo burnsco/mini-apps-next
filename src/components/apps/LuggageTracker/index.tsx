@@ -1,16 +1,17 @@
-import { Heading, Input, List, ListItem, Text } from "@chakra-ui/react"
+import { Container } from "@chakra-ui/react"
 import { FC } from "react"
+import LuggageTrackerFilters from "./FilterGroup"
+import LuggageTrackerHeader from "./Header"
+import LuggageTrackerInput from "./Input"
+import LuggageTrackerListView from "./List"
 
 const LuggageTracker: FC<{}> = () => (
-  <>
-    <Heading>Luggage</Heading>
-    <Text>Track your pack/unpacked luggage before a trip!</Text>
-    <Text>Using apollo local state (to make it interesting)</Text>
-    <Input type="text" />
-    <List>
-      <ListItem>one</ListItem>
-    </List>
-  </>
+  <Container>
+    <LuggageTrackerHeader />
+    <LuggageTrackerInput />
+    <LuggageTrackerFilters />
+    <LuggageTrackerListView />
+  </Container>
 )
 
 export default LuggageTracker

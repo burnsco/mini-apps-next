@@ -1,5 +1,4 @@
 import { ApolloClient, ApolloProvider } from "@apollo/client"
-import "todomvc-app-css/index.css"
 import { cache } from "./cache"
 import LuggageTracker from "./index"
 
