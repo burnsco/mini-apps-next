@@ -25,5 +25,11 @@ type SetFilterType = {
   setFilter: (filter: VisibilityFilter) => void
 }
 
+type LuggageTracker = {
+  activeFilter: VisibilityFilter
+  filters: VisibilityFilters
+  items: LuggageItems
+}
+
 type LuggageItems = LuggageItem[]
 type VisibilityFilters = VisibilityFilter[]

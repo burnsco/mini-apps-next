@@ -1,6 +1,6 @@
-import { gql } from "@apollo/client"
+import { gql } from '@apollo/client'
 
-export const GET_VISIBILITY_FILTER = gql`
+export const GET_VISIBILITY_FILTERS = gql`
   query GetVisibilityFilter {
     visibilityFilters @client
   }

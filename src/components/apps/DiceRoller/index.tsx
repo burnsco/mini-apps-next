@@ -4,14 +4,15 @@ import {
   Flex,
   Heading,
   HStack,
-  SimpleGrid
-} from "@chakra-ui/react"
-import getRandomInt from "@utils/getRandomInt"
-import { useState } from "react"
-import { GiRollingDiceCup } from "react-icons/gi"
-import PageTransition from "src/components/common/Animated/page-transition"
-import DiceTable from "./dice-table"
-import RenderDie from "./renderDice"
+  SimpleGrid,
+  Spacer
+} from '@chakra-ui/react'
+import getRandomInt from '@utils/getRandomInt'
+import { useState } from 'react'
+import { GiRollingDiceCup } from 'react-icons/gi'
+import PageTransition from 'src/components/common/Animated/page-transition'
+import DiceTable from './dice-table'
+import RenderDie from './renderDice'
 
 const DiceRoll = () => {
   const [rolling, setRolling] = useState<boolean>(false)
@@ -52,8 +53,8 @@ const DiceRoll = () => {
       tiles.push(
         <Box
           key={`tile-${i}`}
-          bg={totalScore === i ? "blue" : "tomato"}
-          height="20px"
+          bg={totalScore === i ? 'blue' : 'tomato'}
+          height='20px'
         />
       )
     }
@@ -62,38 +63,44 @@ const DiceRoll = () => {
 
   return (
     <PageTransition>
-      <Box w="full" h="full">
+      <Box w='full' h='full'>
         <Flex
-          w="full"
-          height="50px"
-          borderTop="2px solid black"
-          borderBottom="2px solid black"
+          w='full'
+          p={2}
+          align='center'
+          height='60px'
+          borderTop='2px solid black'
+          borderBottom='2px solid black'
         >
           <Button
             isDisabled={rolling}
             leftIcon={<GiRollingDiceCup />}
-            size="md"
+            size='lg'
             onClick={() => handleRoll()}
           >
-            Roll
+            Roll Dice
           </Button>
+          <Spacer />
+          <HStack>
+            <RenderDie dieOne={currentGameData.roll[0]} />
+            <RenderDie dieTwo={currentGameData.roll[1]} />
+          </HStack>
+          <Spacer />
           <Heading>Total Score: ({totalScore})</Heading>
-          <Heading as="h4"> {totalScore >= 100 ? `YOU WIN!` : null}</Heading>
+          <Heading as='h4'> {totalScore >= 100 ? `YOU WIN!` : null}</Heading>
         </Flex>
-        <Flex>
-          <Box w="50%" h="100%">
-            <HStack mt={4}>
-              <RenderDie dieOne={currentGameData.roll[0]} />
-              <RenderDie dieTwo={currentGameData.roll[1]} />
-            </HStack>
-            <SimpleGrid columns={10} row="auto" spacingX="2px" spacingY="2px">
+
+        <SimpleGrid columns={2} w='full' p={2} spacing={2}>
+          <Box>
+            <SimpleGrid columns={10} row='auto' spacingX='2px' spacingY='2px'>
               {tileMaker(totalScore)}
             </SimpleGrid>
           </Box>
-          <Box w="50%">
+
+          <Box>
             <DiceTable currentGameData={currData} />
           </Box>
-        </Flex>
+        </SimpleGrid>
       </Box>
     </PageTransition>
   )

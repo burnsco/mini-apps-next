@@ -1,10 +1,10 @@
-import { Button, Input, InputGroup, InputRightElement } from "@chakra-ui/react"
-import { FC, useState } from "react"
-import { v4 } from "uuid"
-import { itemsVar } from "./cache"
+import { Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
+import { FC, useState } from 'react'
+import { v4 } from 'uuid'
+import { itemsVar } from '../cache'
 
 const LuggageTrackerInput: FC<{}> = () => {
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState('')
 
   const handleClick = (e: any) => {
     e.preventDefault()
@@ -17,7 +17,7 @@ const LuggageTrackerInput: FC<{}> = () => {
         completed: false
       }
     ])
-    setInput("")
+    setInput('')
   }
 
   return (
@@ -25,13 +25,13 @@ const LuggageTrackerInput: FC<{}> = () => {
       <InputGroup>
         <Input
           autoFocus
-          pr="3.2rem"
+          pr='3.2rem'
           value={input}
-          placeholder="Item to pack..."
+          placeholder='Item to pack...'
           onChange={e => setInput(e.target.value)}
         />
-        <InputRightElement width="4.5rem">
-          <Button type="submit" h="1.75rem" size="sm" onClick={handleClick}>
+        <InputRightElement width='4.5rem'>
+          <Button type='submit' h='1.75rem' size='sm' onClick={handleClick}>
             Submit
           </Button>
         </InputRightElement>
