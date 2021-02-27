@@ -1,10 +1,10 @@
-import { Table, TableCaption, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react"
-import React, { FC } from "react"
+import { Table, TableCaption, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
+import React, { FC } from 'react'
 
 const DiceTable: FC<{ currentGameData: CurrentGame[] }> = ({
   currentGameData: data
 }) => (
-  <Table variant="simple" size="sm">
+  <Table variant='simple' size='sm'>
     <TableCaption>Imperial to metric conversion factors</TableCaption>
     <Thead>
       <Tr>

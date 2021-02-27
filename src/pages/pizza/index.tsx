@@ -1,6 +1,6 @@
-import dynamic from "next/dynamic"
+import dynamic from 'next/dynamic'
 
-const PizzaCalculator = dynamic(() => import("@apps/PizzaCalculator"))
+const PizzaCalculator = dynamic(() => import('@apps/PizzaCalculator'))
 
 const LuggagePackTrackPage = () => <PizzaCalculator />
 

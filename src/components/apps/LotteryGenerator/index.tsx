@@ -6,10 +6,30 @@ import {
   FormLabel,
   HStack,
   Input
-} from "@chakra-ui/react"
-import { useState } from "react"
-import { GiRollingDiceCup } from "react-icons/gi"
-import PageTransition from "src/components/common/Animated/page-transition"
+} from '@chakra-ui/react'
+import { useState } from 'react'
+import { GiRollingDiceCup } from 'react-icons/gi'
+import PageTransition from 'src/components/common/Animated/page-transition'
+
+export const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2
+    }
+  }
+}
+
+export const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+}
 
 const LotterNumberGeneratorPage = () => {
   const [generating, setGenerating] = useState<boolean>(false)
@@ -33,13 +53,13 @@ const LotterNumberGeneratorPage = () => {
         <Badge
           key={`ball-${i}`}
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
             ml: 2,
             height: 50,
             width: 50,
-            borderRadius: "full"
+            borderRadius: 'full'
           }}
         >
           <strong>
@@ -53,28 +73,28 @@ const LotterNumberGeneratorPage = () => {
 
   return (
     <PageTransition>
-      <Box w="full" h="full">
+      <Box w='full' h='full'>
         <Flex
-          w="full"
-          height="50px"
-          borderTop="2px solid black"
-          borderBottom="2px solid black"
+          w='full'
+          height='50px'
+          borderTop='2px solid black'
+          borderBottom='2px solid black'
         >
           <Button
             isDisabled={generating}
             leftIcon={<GiRollingDiceCup />}
-            size="md"
+            size='md'
             onClick={() => handleGeneration()}
           >
             Generate
           </Button>
         </Flex>
         <Flex>
-          <Box w="full" h="100%">
+          <Box w='full' h='100%'>
             <FormLabel># of Balls</FormLabel>
-            <Input type="number" onChange={handleBalls} value={numBalls} />
+            <Input type='number' onChange={handleBalls} value={numBalls} />
             <FormLabel># Limit</FormLabel>
-            <Input type="number" onChange={handleLimit} value={numLimit} />
+            <Input type='number' onChange={handleLimit} value={numLimit} />
 
             <HStack mt={4}>{renderBalls(numBalls, numLimit)}</HStack>
           </Box>

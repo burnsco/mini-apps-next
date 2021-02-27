@@ -26,7 +26,7 @@ type SetFilterType = {
 }
 
 type LuggageTracker = {
-  activeFilter: VisibilityFilter
+  activeFilter?: VisibilityFilter
   filters: VisibilityFilters
   items: LuggageItems
 }

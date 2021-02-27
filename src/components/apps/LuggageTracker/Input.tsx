@@ -1,7 +1,7 @@
 import { Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
 import { FC, useState } from 'react'
 import { v4 } from 'uuid'
-import { itemsVar } from '../cache'
+import { itemsVar } from './cache'
 
 const LuggageTrackerInput: FC<{}> = () => {
   const [input, setInput] = useState('')

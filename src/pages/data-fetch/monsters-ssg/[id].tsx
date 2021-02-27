@@ -1,6 +1,6 @@
-import { Box, Center, Image, Text } from "@chakra-ui/react"
-import { GetStaticPaths, GetStaticProps } from "next"
-import { NextChakraLink } from "src/components/common/index"
+import { Box, Center, Image, Text } from '@chakra-ui/react'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { NextChakraLink } from 'src/components/common/index'
 
 type User = {
   id: number
@@ -11,7 +11,7 @@ type User = {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
-    "https://jsonplaceholder.typicode.com/users?_page=1"
+    'https://jsonplaceholder.typicode.com/users?_page=1'
   )
   const userList = await response.json()
   return {
@@ -39,13 +39,13 @@ export default function MonsterPage(user: User) {
     <Center>
       <Box
         key={user.id}
-        maxW="sm"
-        borderWidth="1px"
-        borderRadius="lg"
-        overflow="hidden"
-        rounded="sm"
-        bg="white"
-        shadow="lg"
+        maxW='sm'
+        borderWidth='1px'
+        borderRadius='lg'
+        overflow='hidden'
+        rounded='sm'
+        bg='white'
+        shadow='lg'
       >
         <Image
           alt={`image-${user.name}`}
@@ -55,7 +55,7 @@ export default function MonsterPage(user: User) {
         <Text>{user.email}</Text>
         <Text>{user.website}</Text>
       </Box>
-      <NextChakraLink href="/monsters"> Go Back</NextChakraLink>
+      <NextChakraLink href='/monsters'> Go Back</NextChakraLink>
     </Center>
   )
 }

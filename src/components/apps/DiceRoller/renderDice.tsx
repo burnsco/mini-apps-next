@@ -1,5 +1,5 @@
-import { Icon } from "@chakra-ui/react"
-import { FC } from "react"
+import { Icon } from '@chakra-ui/react'
+import { FC } from 'react'
 import {
   GiPerspectiveDiceSixFacesFive,
   GiPerspectiveDiceSixFacesFour,
@@ -7,7 +7,7 @@ import {
   GiPerspectiveDiceSixFacesSix,
   GiPerspectiveDiceSixFacesThree,
   GiPerspectiveDiceSixFacesTwo
-} from "react-icons/gi"
+} from 'react-icons/gi'
 
 const RenderDie: FC<{
   dieOne?: number
@@ -24,7 +24,7 @@ const RenderDie: FC<{
     dieFour === 1 ||
     dieFive === 1 ||
     dieSix === 1 ? (
-      <Icon boxSize="3em" as={GiPerspectiveDiceSixFacesOne} />
+      <Icon boxSize='3em' as={GiPerspectiveDiceSixFacesOne} />
     ) : null}
     {dieOne === 2 ||
     dieTwo === 2 ||
@@ -32,7 +32,7 @@ const RenderDie: FC<{
     dieFour === 2 ||
     dieFive === 2 ||
     dieSix === 2 ? (
-      <Icon boxSize="3em" as={GiPerspectiveDiceSixFacesTwo} />
+      <Icon boxSize='3em' as={GiPerspectiveDiceSixFacesTwo} />
     ) : null}
     {dieOne === 3 ||
     dieTwo === 3 ||
@@ -40,7 +40,7 @@ const RenderDie: FC<{
     dieFour === 3 ||
     dieFive === 3 ||
     dieSix === 3 ? (
-      <Icon boxSize="3em" as={GiPerspectiveDiceSixFacesThree} />
+      <Icon boxSize='3em' as={GiPerspectiveDiceSixFacesThree} />
     ) : null}
     {dieOne === 4 ||
     dieTwo === 4 ||
@@ -48,7 +48,7 @@ const RenderDie: FC<{
     dieFour === 4 ||
     dieFive === 4 ||
     dieSix === 4 ? (
-      <Icon boxSize="3em" as={GiPerspectiveDiceSixFacesFour} />
+      <Icon boxSize='3em' as={GiPerspectiveDiceSixFacesFour} />
     ) : null}
     {dieOne === 5 ||
     dieTwo === 5 ||
@@ -56,7 +56,7 @@ const RenderDie: FC<{
     dieFour === 5 ||
     dieFive === 5 ||
     dieSix === 5 ? (
-      <Icon boxSize="3em" as={GiPerspectiveDiceSixFacesFive} />
+      <Icon boxSize='3em' as={GiPerspectiveDiceSixFacesFive} />
     ) : null}
     {dieOne === 6 ||
     dieTwo === 6 ||
@@ -64,7 +64,7 @@ const RenderDie: FC<{
     dieFour === 6 ||
     dieFive === 6 ||
     dieSix === 6 ? (
-      <Icon boxSize="3em" as={GiPerspectiveDiceSixFacesSix} />
+      <Icon boxSize='3em' as={GiPerspectiveDiceSixFacesSix} />
     ) : null}
   </>
 )

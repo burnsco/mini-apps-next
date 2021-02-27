@@ -8,6 +8,7 @@ import {
   Spacer
 } from '@chakra-ui/react'
 import getRandomInt from '@utils/getRandomInt'
+import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
 import PageTransition from 'src/components/common/Animated/page-transition'
@@ -61,6 +62,8 @@ const DiceRoll = () => {
     return tiles
   }
 
+  const Test = motion(Box)
+
   return (
     <PageTransition>
       <Box w='full' h='full'>
@@ -82,8 +85,26 @@ const DiceRoll = () => {
           </Button>
           <Spacer />
           <HStack>
-            <RenderDie dieOne={currentGameData.roll[0]} />
-            <RenderDie dieTwo={currentGameData.roll[1]} />
+            <Test
+              animate={{
+                x: [-8, -12, -16, -10, 0],
+                scale: [1, 2, 2, 1, 1],
+                rotate: [0, 170, 280, 320, 0],
+                borderRadius: ['20%', '20%', '50%', '50%', '20%']
+              }}
+            >
+              <RenderDie dieOne={currentGameData.roll[0]} />
+            </Test>
+            <Test
+              animate={{
+                x: [8, 12, 16, 10, 0],
+                scale: [1, 2, 2, 1, 1],
+                rotate: [0, 0, 240, 220, 0],
+                borderRadius: ['20%', '20%', '60%', '40%', '20%']
+              }}
+            >
+              <RenderDie dieTwo={currentGameData.roll[1]} />
+            </Test>
           </HStack>
           <Spacer />
           <Heading>Total Score: ({totalScore})</Heading>

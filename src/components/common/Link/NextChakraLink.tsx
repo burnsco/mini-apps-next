@@ -1,13 +1,13 @@
 import {
   Link as ChakraLink,
   LinkProps as ChakraLinkProps
-} from "@chakra-ui/react"
-import type { LinkProps as NextLinkProps } from "next/dist/client/link"
-import NextLink from "next/link"
-import type { PropsWithChildren } from "react"
+} from '@chakra-ui/react'
+import type { LinkProps as NextLinkProps } from 'next/dist/client/link'
+import NextLink from 'next/link'
+import type { PropsWithChildren } from 'react'
 
 export type NextChakraLinkProps = PropsWithChildren<
-  NextLinkProps & Omit<ChakraLinkProps, "as">
+  NextLinkProps & Omit<ChakraLinkProps, 'as'>
 >
 
 const NextChakraLink = ({

@@ -6,12 +6,6 @@ export const cache: InMemoryCache = new InMemoryCache({
       fields: {
         items: {
           read() {
-            if (activeFilterVar().id === 'show_completed') {
-              return itemsVar().filter(i => i.completed)
-            }
-            if (activeFilterVar().id === 'show_active') {
-              return itemsVar().filter(i => !i.completed)
-            }
             return itemsVar()
           }
         },
