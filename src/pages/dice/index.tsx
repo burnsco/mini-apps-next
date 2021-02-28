@@ -1,4 +1,6 @@
-import DiceRoll from '@apps/DiceRoller'
+import dynamic from 'next/dynamic'
+
+const DiceRoll = dynamic(() => import('@apps/DiceRoller'))
 
 const DiceRollPage = () => <DiceRoll />
 

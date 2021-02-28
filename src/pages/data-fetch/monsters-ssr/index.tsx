@@ -1,5 +1,7 @@
 import { GetServerSideProps } from 'next'
-import Monsters from '../../../components/apps/Monsters/monsters'
+import dynamic from 'next/dynamic'
+
+const Monsters = dynamic(() => import('@apps/Monsters/monsters'))
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(

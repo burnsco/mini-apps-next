@@ -1,5 +1,7 @@
 import { GetStaticProps } from 'next'
-import Monsters from '../../../components/apps/Monsters/monsters'
+import dynamic from 'next/dynamic'
+
+const Monsters = dynamic(() => import('@apps/Monsters/monsters'))
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch(
