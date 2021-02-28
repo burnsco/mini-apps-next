@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import Monsters from './monsters'
+import Monsters from '../../../components/apps/Monsters/monsters'
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(

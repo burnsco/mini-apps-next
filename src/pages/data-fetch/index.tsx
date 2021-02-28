@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import Monsters from './monsters'
+import Monsters from '../../components/apps/Monsters/monsters'
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch(

@@ -1,20 +1,20 @@
 import { GetStaticProps } from 'next'
-import MonstersView from './monsters'
+import Monsters from '../../../components/apps/Monsters/monsters'
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch(
     'https://jsonplaceholder.typicode.com/users?_page=1'
   )
 
-  const users: User[] = await response.json()
+  const data = await response.json()
 
   return {
     props: {
-      users
+      data
     }
   }
 }
 
-export default function MonstersData(users: User[]) {
-  return <MonstersView {...users} />
-}
+const MonstersRolodexPage = (props: any) => <Monsters {...props} />
+
+export default MonstersRolodexPage

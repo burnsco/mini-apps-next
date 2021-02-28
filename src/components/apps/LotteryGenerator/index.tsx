@@ -10,6 +10,7 @@ import {
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
 import PageTransition from 'src/components/common/Animated/page-transition'
+import { setTimeout } from 'timers'
 
 export const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -35,13 +36,6 @@ const LotterNumberGeneratorPage = () => {
   const [generating, setGenerating] = useState<boolean>(false)
   const [numBalls, setNumBalls] = useState(7)
   const [numLimit, setNumLimit] = useState(99)
-
-  function handleGeneration() {
-    setGenerating(true)
-    setTimeout(() => {
-      setGenerating(false)
-    }, 1000)
-  }
 
   const handleBalls = (e: any) => setNumBalls(e.target.value)
   const handleLimit = (e: any) => setNumLimit(e.target.value)
@@ -84,7 +78,12 @@ const LotterNumberGeneratorPage = () => {
             isDisabled={generating}
             leftIcon={<GiRollingDiceCup />}
             size='md'
-            onClick={() => handleGeneration()}
+            onClick={() => {
+              setGenerating(true)
+              setTimeout(() => {
+                setGenerating(false)
+              }, 500)
+            }}
           >
             Generate
           </Button>

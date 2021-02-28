@@ -28,7 +28,6 @@ export default function Monsters(props: any) {
     user.name.toLowerCase().includes(input.toLowerCase())
   )
 
-  console.log(props)
   return (
     <Container maxW='xxl' mt='1'>
       <VStack spacing={4} mb={2}>
@@ -39,13 +38,13 @@ export default function Monsters(props: any) {
         </Text>
         <ButtonGroup>
           <Button as='a' href='/data-fetch/monsters-client'>
-            One
+            Client
           </Button>
           <Button as='a' href='/data-fetch/monsters-ssg'>
-            Two
+            SSG
           </Button>
           <Button as='a' href='/data-fetch/monsters-ssr'>
-            Three
+            SSR
           </Button>
         </ButtonGroup>
         <Input
@@ -82,7 +81,7 @@ export default function Monsters(props: any) {
             >
               <Center>
                 <Image
-                  eager
+                  loading='eager'
                   src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
                   alt={`image-${user.name}`}
                 />
