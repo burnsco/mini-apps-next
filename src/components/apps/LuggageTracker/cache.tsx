@@ -1,39 +1,5 @@
 import { InMemoryCache, makeVar, ReactiveVar } from '@apollo/client'
 
-export const cache: InMemoryCache = new InMemoryCache({
-  typePolicies: {
-    Query: {
-      fields: {
-        items: {
-          read() {
-            return itemsVar()
-          }
-        },
-        visibilityFilters: {
-          read() {
-            return visibilityFiltersVar()
-          }
-        },
-        activeFilter: {
-          read() {
-            return activeFilterVar()
-          }
-        },
-        completedCount: {
-          read() {
-            return itemsVar().filter(i => i.completed === true).length
-          }
-        },
-        activeCount: {
-          read() {
-            return itemsVar().filter(i => i.completed === false).length
-          }
-        }
-      }
-    }
-  }
-})
-
 const initialState: LuggageItems = [
   {
     id: 'asdfsd09',
@@ -65,4 +31,34 @@ export const visibilityFiltersVar: ReactiveVar<VisibilityFilters> = makeVar<Visi
 export const activeFilterVar: ReactiveVar<VisibilityFilter> = makeVar({
   id: 'show_all',
   displayName: 'All'
+})
+
+export const cache: InMemoryCache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        items: {
+          read() {
+            if (activeFilterVar().id === 'show_completed') {
+              return itemsVar().filter(item => item.completed)
+            }
+            if (activeFilterVar().id === 'show_active') {
+              return itemsVar().filter(item => !item.completed)
+            }
+            return itemsVar()
+          }
+        },
+        visibilityFilters: {
+          read() {
+            return visibilityFiltersVar()
+          }
+        },
+        activeFilter: {
+          read() {
+            return activeFilterVar()
+          }
+        }
+      }
+    }
+  }
 })

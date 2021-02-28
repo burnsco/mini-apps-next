@@ -2,12 +2,12 @@ import { Box, Heading, Image, Input, SimpleGrid, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 
-export default function Monsters(users: User[]) {
+export default function Monsters(props: any) {
   const router = useRouter()
 
   const [input, setInput] = useState('')
 
-  const filteredUsers = users.filter((user: User) =>
+  const filteredUsers = props.data.filter((user: User) =>
     user.name.toLowerCase().includes(input.toLowerCase())
   )
 

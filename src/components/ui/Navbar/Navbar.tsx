@@ -41,9 +41,9 @@ const links = [
   },
 
   {
-    id: 'monsters-rolodex',
+    id: 'data-fetch',
     title: 'Monsters Rolodex',
-    path: '/monsters/',
+    path: '/data-fetch/',
     icon: '👹'
   },
 

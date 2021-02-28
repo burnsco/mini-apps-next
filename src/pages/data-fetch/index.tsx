@@ -6,15 +6,15 @@ export const getStaticProps: GetStaticProps = async () => {
     'https://jsonplaceholder.typicode.com/users?_page=1'
   )
 
-  const users = await response.json()
+  const data = await response.json()
 
   return {
     props: {
-      users
+      data
     }
   }
 }
 
-export default function MonstersRolodexPage(users: User[]) {
-  return <Monsters {...users} />
-}
+const MonstersRolodexPage = (props: any) => <Monsters {...props} />
+
+export default MonstersRolodexPage

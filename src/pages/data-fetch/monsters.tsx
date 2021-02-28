@@ -1,55 +1,109 @@
-import { Box, Heading, Image, Input, SimpleGrid, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Center,
+  Container,
+  Heading,
+  Image,
+  Input,
+  SimpleGrid,
+  Text,
+  useColorModeValue,
+  VStack
+} from '@chakra-ui/react'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 
-export default function Monsters(users: User[]) {
+export default function Monsters(props: any) {
   const router = useRouter()
+
+  const borderColor = useColorModeValue('gray.100', '#313131')
+  const hoverColor = useColorModeValue('gray.200', 'gray.600')
+  const bg = useColorModeValue('whitesmoke', '#202020')
 
   const [input, setInput] = useState('')
 
-  const filteredUsers = users.filter((user: User) =>
+  const filteredUsers = props.data.filter((user: User) =>
     user.name.toLowerCase().includes(input.toLowerCase())
   )
 
+  console.log(props)
   return (
-    <main>
-      <Heading>Monsters Rolodex</Heading>
-      <Text>
-        Fetch data in every possible way, use different types, tables, cool
-        stuff
-      </Text>
-      <Input
-        value={input}
-        onChange={e => setInput(e.target.value)}
-        maxW='sm'
-        placeholder='search...'
-        mb={2}
-      />
+    <Container maxW='xxl' mt='1'>
+      <VStack spacing={4} mb={2}>
+        <Heading>Monsters Rolodex</Heading>
+        <Text>
+          Fetch data in every possible way, use different types, tables, cool
+          stuff
+        </Text>
+        <ButtonGroup>
+          <Button as='a' href='/data-fetch/monsters-client'>
+            One
+          </Button>
+          <Button as='a' href='/data-fetch/monsters-ssg'>
+            Two
+          </Button>
+          <Button as='a' href='/data-fetch/monsters-ssr'>
+            Three
+          </Button>
+        </ButtonGroup>
+        <Input
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          maxW='sm'
+          placeholder='search...'
+          mb={2}
+        />
+      </VStack>
       <section>
-        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={4}>
+        <SimpleGrid
+          className='simple-grid-shop'
+          columns={[1, 2, 3]}
+          spacing={4}
+          w='full'
+        >
           {filteredUsers.map((user: User) => (
             <Box
               onClick={() => router.push(`/monsters/${user.id}`)}
+              bg={bg}
+              borderColor={borderColor}
               key={user.id}
               maxW='sm'
               borderWidth='1px'
               borderRadius='lg'
               overflow='hidden'
-              rounded='sm'
-              bg='white'
-              shadow='lg'
+              shadow='md'
+              _hover={{
+                boxShadow: 'md',
+                borderWidth: '1px',
+                borderColor: hoverColor
+              }}
             >
-              <Image
-                alt={`image-${user.name}`}
-                src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
-              />
-              <Text>{user.name}</Text>
-              <Text>{user.email}</Text>
-              <Text>{user.website}</Text>
+              <Center>
+                <Image
+                  eager
+                  src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
+                  alt={`image-${user.name}`}
+                />
+              </Center>
+
+              <Box p={4}>
+                <Text>
+                  <em>Name:</em> {user.name}
+                </Text>
+                <Text>
+                  <em>Email: </em>
+                  {user.email}
+                </Text>
+                <Text>
+                  <em>Website:</em> {user.website}
+                </Text>
+              </Box>
             </Box>
           ))}
         </SimpleGrid>
       </section>
-    </main>
+    </Container>
   )
 }

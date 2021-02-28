@@ -6,9 +6,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
     'https://jsonplaceholder.typicode.com/users?_page=1'
   )
 
-  const users: User[] = await response.json()
+  const data = await response.json()
 
-  if (!users) {
+  if (!data) {
     return {
       redirect: {
         destination: '/',
@@ -19,11 +19,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      users
+      data
     }
   }
 }
 
-export default function MonstersRolodexPage(users: User[]) {
-  return <Monsters {...users} />
-}
+const MonstersRolodexPage = (props: any) => <Monsters {...props} />
+
+export default MonstersRolodexPage

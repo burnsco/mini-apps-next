@@ -1,7 +1,7 @@
 import { Box, Heading, Text } from '@chakra-ui/react'
 import { itemsVar } from './cache'
 
-const allItemsCount = itemsVar().length
+const allItemsCount = [...itemsVar()].length
 
 const LuggageTrackerHeader = () => (
   <Box>
