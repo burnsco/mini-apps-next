@@ -1,5 +1,48 @@
-import { Checkbox, HStack, List, ListItem, Text } from '@chakra-ui/react'
+import {
+  Checkbox,
+  Editable,
+  EditableInput,
+  EditablePreview,
+  HStack,
+  List,
+  ListItem
+} from '@chakra-ui/react'
 import { itemsVar } from './cache'
+
+function ListItemEditControls(item: LuggageItem) {
+  return (
+    <Editable
+      defaultValue={item.text}
+      submitOnBlur
+      onSubmit={props => {
+        itemsVar([
+          ...itemsVar().map(i =>
+            i.id !== item.id ? { ...i } : { ...i, text: props }
+          )
+        ])
+      }}
+    >
+      <EditablePreview />
+      <EditableInput />
+    </Editable>
+  )
+}
+
+function ListItemTogglePacked(item: LuggageItem) {
+  return (
+    <Checkbox
+      size='md'
+      isChecked={item.completed}
+      onChange={() => {
+        itemsVar([
+          ...itemsVar().map(i =>
+            i.id !== item.id ? { ...i } : { ...i, completed: !i.completed }
+          )
+        ])
+      }}
+    />
+  )
+}
 
 export default function LuggageTrackerList(props: any) {
   return (
@@ -7,20 +50,8 @@ export default function LuggageTrackerList(props: any) {
       {props.items.map((item: any) => (
         <ListItem key={`list item-${item.id}-${item.completed}`}>
           <HStack>
-            <Text>{item.text}</Text>
-            <Checkbox
-              size='md'
-              isChecked={item.completed}
-              onChange={() => {
-                itemsVar([
-                  ...itemsVar().map(i =>
-                    i.id !== item.id
-                      ? { ...i }
-                      : { ...i, completed: !i.completed }
-                  )
-                ])
-              }}
-            />
+            <ListItemTogglePacked {...item} />
+            <ListItemEditControls {...item} />
           </HStack>
         </ListItem>
       ))}

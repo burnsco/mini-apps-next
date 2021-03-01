@@ -1,15 +1,15 @@
 import {
   Badge,
-  Box,
   Button,
-  Flex,
+  Container,
   FormLabel,
   HStack,
-  Input
+  Input,
+  VStack
 } from '@chakra-ui/react'
+import FlexContainer from '@common/Containers/FlexContainer'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
-import PageTransition from 'src/components/common/Animated/page-transition'
 import { setTimeout } from 'timers'
 
 export const container = {
@@ -66,40 +66,35 @@ const LotterNumberGeneratorPage = () => {
   }
 
   return (
-    <PageTransition>
-      <Box w='full' h='full'>
-        <Flex
-          w='full'
-          height='50px'
-          borderTop='2px solid black'
-          borderBottom='2px solid black'
+    <Container>
+      <FlexContainer w='full' boxShadow='2xl' h='full' borderRadius='lg'>
+        <Button
+          borderBottomRadius='none'
+          width='full'
+          colorScheme='orange'
+          isDisabled={generating}
+          leftIcon={<GiRollingDiceCup />}
+          size='md'
+          onClick={() => {
+            setGenerating(true)
+            setTimeout(() => {
+              setGenerating(false)
+            }, 500)
+          }}
         >
-          <Button
-            isDisabled={generating}
-            leftIcon={<GiRollingDiceCup />}
-            size='md'
-            onClick={() => {
-              setGenerating(true)
-              setTimeout(() => {
-                setGenerating(false)
-              }, 500)
-            }}
-          >
-            Generate
-          </Button>
-        </Flex>
-        <Flex>
-          <Box w='full' h='100%'>
-            <FormLabel># of Balls</FormLabel>
-            <Input type='number' onChange={handleBalls} value={numBalls} />
-            <FormLabel># Limit</FormLabel>
-            <Input type='number' onChange={handleLimit} value={numLimit} />
+          {generating ? 'Generating' : 'Generate Numbers'}
+        </Button>
 
-            <HStack mt={4}>{renderBalls(numBalls, numLimit)}</HStack>
-          </Box>
-        </Flex>
-      </Box>
-    </PageTransition>
+        <VStack spacing={4} p={5}>
+          <FormLabel># of Balls</FormLabel>
+          <Input type='number' onChange={handleBalls} value={numBalls} />
+          <FormLabel># Limit</FormLabel>
+          <Input type='number' onChange={handleLimit} value={numLimit} />
+
+          <HStack>{renderBalls(numBalls, numLimit)}</HStack>
+        </VStack>
+      </FlexContainer>
+    </Container>
   )
 }
 export default LotterNumberGeneratorPage

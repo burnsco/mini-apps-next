@@ -7,11 +7,11 @@ import {
   SimpleGrid,
   Spacer
 } from '@chakra-ui/react'
+import FlexContainer from '@common/Containers/FlexContainer'
 import getRandomInt from '@utils/getRandomInt'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
-import PageTransition from 'src/components/common/Animated/page-transition'
 import DiceTable from './dice-table'
 import RenderDie from './renderDice'
 
@@ -65,7 +65,7 @@ const DiceRoll = () => {
   const Test = motion(Box)
 
   return (
-    <PageTransition>
+    <FlexContainer p={2} borderRadius='md'>
       <Box w='full' h='full'>
         <Flex
           w='full'
@@ -123,7 +123,7 @@ const DiceRoll = () => {
           </Box>
         </SimpleGrid>
       </Box>
-    </PageTransition>
+    </FlexContainer>
   )
 }
 export default DiceRoll
