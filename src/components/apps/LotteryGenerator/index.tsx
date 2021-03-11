@@ -12,27 +12,7 @@ import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
 import { setTimeout } from 'timers'
 
-export const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2
-    }
-  }
-}
-
-export const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1
-  }
-}
-
-const LotterNumberGeneratorPage = () => {
+function LotterNumberGeneratorPage() {
   const [generating, setGenerating] = useState<boolean>(false)
   const [numBalls, setNumBalls] = useState(7)
   const [numLimit, setNumLimit] = useState(99)
@@ -40,9 +20,16 @@ const LotterNumberGeneratorPage = () => {
   const handleBalls = (e: any) => setNumBalls(e.target.value)
   const handleLimit = (e: any) => setNumLimit(e.target.value)
 
-  function renderBalls(numberOfBalls: number, numberLimit: number) {
+  function renderBalls() {
     const balls = []
-    for (let i = 0; i <= numberOfBalls; i++) {
+
+    for (let i = 0; i <= numBalls; i++) {
+      const renderGenerating = <strong>Rolling</strong>
+      const renderGenerated = (
+        <strong>
+          {Math.floor(Math.random() * Math.floor(numLimit - 1) + 1)}
+        </strong>
+      )
       balls.push(
         <Badge
           key={`ball-${i}`}
@@ -56,13 +43,19 @@ const LotterNumberGeneratorPage = () => {
             borderRadius: 'full'
           }}
         >
-          <strong>
-            {Math.floor(Math.random() * Math.floor(numberLimit - 1) + 1)}
-          </strong>
+          {generating ? renderGenerating : renderGenerated}
         </Badge>
       )
     }
+
     return balls
+  }
+
+  function rollDice() {
+    setGenerating(true)
+    setTimeout(() => {
+      setGenerating(false)
+    }, 1000)
   }
 
   return (
@@ -75,12 +68,7 @@ const LotterNumberGeneratorPage = () => {
           isDisabled={generating}
           leftIcon={<GiRollingDiceCup />}
           size='md'
-          onClick={() => {
-            setGenerating(true)
-            setTimeout(() => {
-              setGenerating(false)
-            }, 500)
-          }}
+          onClick={rollDice}
         >
           {generating ? 'Generating' : 'Generate Numbers'}
         </Button>
@@ -91,7 +79,7 @@ const LotterNumberGeneratorPage = () => {
           <FormLabel># Limit</FormLabel>
           <Input type='number' onChange={handleLimit} value={numLimit} />
 
-          <HStack>{renderBalls(numBalls, numLimit)}</HStack>
+          <HStack>{renderBalls()}</HStack>
         </VStack>
       </FlexContainer>
     </Container>

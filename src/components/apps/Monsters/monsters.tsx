@@ -64,7 +64,7 @@ export default function Monsters(props: any) {
         >
           {filteredUsers.map((user: User) => (
             <Box
-              onClick={() => router.push(`/monsters/${user.id}`)}
+              onClick={() => router.push(`/data-fetch/${user.id}`)}
               bg={bg}
               borderColor={borderColor}
               key={user.id}

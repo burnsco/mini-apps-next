@@ -7,9 +7,9 @@ import {
   HStack,
   Input
 } from '@chakra-ui/react'
+import PageTransition from '@common/Animated/page-transition'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
-import PageTransition from 'src/components/common/Animated/page-transition'
 import { setTimeout } from 'timers'
 
 const CoinFlipApp = () => {
