@@ -22,6 +22,8 @@ const CoinFlipApp = () => {
     const balls = []
     for (let i = 0; i <= numberOfBalls; i++) {
       const coin = Math.floor(Math.random() * Math.floor(2) + 1)
+      const renderCoin = <strong>{coin === 1 ? 'HEADS' : 'TAILS'}</strong>
+      const renderGenerating = <strong>?</strong>
       balls.push(
         <Badge
           key={`ball-${i}`}
@@ -35,7 +37,7 @@ const CoinFlipApp = () => {
             borderRadius: 'full'
           }}
         >
-          <strong>{coin === 1 ? 'HEADS' : 'TAILS'}</strong>
+          {generating ? renderGenerating : renderCoin}
         </Badge>
       )
     }

@@ -28,7 +28,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${params?.id}`
   )
+
+  if (!response) {
+    return {
+      redirect: {
+        destination: '/data-fetch',
+        permanent: false
+      }
+    }
+  }
+
   const user = await response.json()
+
   return {
     props: user
   }

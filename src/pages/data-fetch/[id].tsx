@@ -1,4 +1,4 @@
-import { Box, Center, Image, Text } from '@chakra-ui/react'
+import { Box, Center, Image, Text, useColorModeValue } from '@chakra-ui/react'
 import { NextChakraLink } from '@common/index'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
@@ -28,6 +28,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${params?.id}`
   )
+  if (!response) {
+    return {
+      redirect: {
+        destination: '/data-fetch',
+        permanent: false
+      }
+    }
+  }
+
   const user = await response.json()
   return {
     props: user
@@ -35,17 +44,28 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function MonsterPage(user: User) {
+  const borderColor = useColorModeValue('gray.100', '#313131')
+  const hoverColor = useColorModeValue('gray.200', 'gray.600')
+  const color = useColorModeValue('#202020', 'whitesmoke')
+  const bg = useColorModeValue('whitesmoke', '#202020')
   return (
     <Center>
       <Box
         key={user.id}
         maxW='sm'
+        bg={bg}
+        color={color}
+        borderColor={borderColor}
         borderWidth='1px'
         borderRadius='lg'
         overflow='hidden'
+        shadow='md'
+        _hover={{
+          boxShadow: 'md',
+          borderWidth: '1px',
+          borderColor: hoverColor
+        }}
         rounded='sm'
-        bg='white'
-        shadow='lg'
       >
         <Image
           alt={`image-${user.name}`}
@@ -55,7 +75,9 @@ export default function MonsterPage(user: User) {
         <Text>{user.email}</Text>
         <Text>{user.website}</Text>
       </Box>
-      <NextChakraLink href='/monsters'> Go Back</NextChakraLink>
+      <Box ml={2}>
+        <NextChakraLink href='/data-fetch'> Go Back</NextChakraLink>
+      </Box>
     </Center>
   )
 }

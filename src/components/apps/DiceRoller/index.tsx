@@ -15,7 +15,7 @@ import { GiRollingDiceCup } from 'react-icons/gi'
 import DiceTable from './dice-table'
 import RenderDie from './renderDice'
 
-const DiceRoll = () => {
+function DiceRoll() {
   const [rolling, setRolling] = useState<boolean>(false)
   const [currentGameData, setCurrentGameData] = useState<CurrentGame>({
     number: 1,

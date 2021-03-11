@@ -20,6 +20,7 @@ export default function Monsters(props: any) {
 
   const borderColor = useColorModeValue('gray.100', '#313131')
   const hoverColor = useColorModeValue('gray.200', 'gray.600')
+  const color = useColorModeValue('#202020', 'whitesmoke')
   const bg = useColorModeValue('whitesmoke', '#202020')
 
   const [input, setInput] = useState('')
@@ -66,6 +67,7 @@ export default function Monsters(props: any) {
             <Box
               onClick={() => router.push(`/data-fetch/${user.id}`)}
               bg={bg}
+              color={color}
               borderColor={borderColor}
               key={user.id}
               maxW='sm'

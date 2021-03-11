@@ -22,14 +22,7 @@ function LotterNumberGeneratorPage() {
 
   function renderBalls() {
     const balls = []
-
     for (let i = 0; i <= numBalls; i++) {
-      const renderGenerating = <strong>Rolling</strong>
-      const renderGenerated = (
-        <strong>
-          {Math.floor(Math.random() * Math.floor(numLimit - 1) + 1)}
-        </strong>
-      )
       balls.push(
         <Badge
           key={`ball-${i}`}
@@ -43,11 +36,14 @@ function LotterNumberGeneratorPage() {
             borderRadius: 'full'
           }}
         >
-          {generating ? renderGenerating : renderGenerated}
+          <strong>
+            {generating
+              ? `?`
+              : Math.floor(Math.random() * Math.floor(numLimit - 1) + 1)}
+          </strong>
         </Badge>
       )
     }
-
     return balls
   }
 
@@ -59,7 +55,7 @@ function LotterNumberGeneratorPage() {
   }
 
   return (
-    <Container>
+    <Container minW='md'>
       <FlexContainer w='full' boxShadow='2xl' h='full' borderRadius='lg'>
         <Button
           borderBottomRadius='none'
@@ -73,7 +69,7 @@ function LotterNumberGeneratorPage() {
           {generating ? 'Generating' : 'Generate Numbers'}
         </Button>
 
-        <VStack spacing={4} p={5}>
+        <VStack spacing={4} p={5} minW='lg'>
           <FormLabel># of Balls</FormLabel>
           <Input type='number' onChange={handleBalls} value={numBalls} />
           <FormLabel># Limit</FormLabel>
