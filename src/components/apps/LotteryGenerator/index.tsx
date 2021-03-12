@@ -11,9 +11,10 @@ import FlexContainer from '@common/Containers/FlexContainer'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
 import { setTimeout } from 'timers'
+import { useToggle } from '../../../utils/useToggle'
 
 function LotterNumberGeneratorPage() {
-  const [generating, setGenerating] = useState<boolean>(false)
+  const [generating, { toggle }] = useToggle()
   const [numBalls, setNumBalls] = useState(7)
   const [numLimit, setNumLimit] = useState(99)
 
@@ -48,9 +49,9 @@ function LotterNumberGeneratorPage() {
   }
 
   function rollDice() {
-    setGenerating(true)
+    toggle()
     setTimeout(() => {
-      setGenerating(false)
+      toggle()
     }, 1000)
   }
 

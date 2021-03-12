@@ -12,11 +12,12 @@ import getRandomInt from '@utils/getRandomInt'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
+import { useToggle } from '../../../utils/useToggle'
 import DiceTable from './dice-table'
 import RenderDie from './renderDice'
 
 function DiceRoll() {
-  const [rolling, setRolling] = useState<boolean>(false)
+  const [rolling, { toggle }] = useToggle()
   const [currentGameData, setCurrentGameData] = useState<CurrentGame>({
     number: 1,
     roll: [0, 0]
@@ -24,7 +25,7 @@ function DiceRoll() {
   const [data, setData] = useState<CurrentGame[]>([])
 
   function handleRoll() {
-    setRolling(true)
+    toggle()
 
     setCurrentGameData(currentGameData => ({
       ...currentGameData,
@@ -39,7 +40,7 @@ function DiceRoll() {
         roll: currentGameData.roll
       }
     ])
-    setRolling(false)
+    toggle()
   }
 
   const currData = [...data, currentGameData]

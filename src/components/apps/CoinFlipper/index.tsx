@@ -11,9 +11,10 @@ import PageTransition from '@common/Animated/page-transition'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
 import { setTimeout } from 'timers'
+import { useToggle } from '../../../utils/useToggle'
 
 const CoinFlipApp = () => {
-  const [generating, setGenerating] = useState<boolean>(false)
+  const [generating, { toggle }] = useToggle()
   const [numBalls, setNumBalls] = useState(7)
 
   const handleBalls = (e: any) => setNumBalls(e.target.value)
@@ -58,9 +59,9 @@ const CoinFlipApp = () => {
             leftIcon={<GiRollingDiceCup />}
             size='md'
             onClick={() => {
-              setGenerating(true)
+              toggle()
               setTimeout(() => {
-                setGenerating(false)
+                toggle()
               }, 500)
             }}
           >
