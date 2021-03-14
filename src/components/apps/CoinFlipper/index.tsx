@@ -8,10 +8,10 @@ import {
   Input
 } from '@chakra-ui/react'
 import PageTransition from '@common/Animated/page-transition'
+import { useToggle } from '@utils/useToggle'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
 import { setTimeout } from 'timers'
-import { useToggle } from '../../../utils/useToggle'
 
 const CoinFlipApp = () => {
   const [generating, { toggle }] = useToggle()
@@ -23,8 +23,7 @@ const CoinFlipApp = () => {
     const balls = []
     for (let i = 0; i <= numberOfBalls; i++) {
       const coin = Math.floor(Math.random() * Math.floor(2) + 1)
-      const renderCoin = <strong>{coin === 1 ? 'HEADS' : 'TAILS'}</strong>
-      const renderGenerating = <strong>?</strong>
+      const renderCoin = <>{coin === 1 ? 'HEADS' : 'TAILS'}</>
       balls.push(
         <Badge
           key={`ball-${i}`}
@@ -38,7 +37,7 @@ const CoinFlipApp = () => {
             borderRadius: 'full'
           }}
         >
-          {generating ? renderGenerating : renderCoin}
+          <strong>{generating ? '?' : renderCoin}</strong>
         </Badge>
       )
     }

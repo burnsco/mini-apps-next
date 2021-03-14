@@ -1,24 +1,27 @@
 {
   "parser": "@typescript-eslint/parser",
-  "extends": [
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "plugin:react-hooks/recommended",
-    "airbnb-typescript",
+  "plugins": [
+    "@typescript-eslint",
+    "@typescript-eslint/eslint-plugin",
+    "react",
+    "react-hooks",
     "prettier"
   ],
-  "plugins": ["react-hooks", "@typescript-eslint/eslint-plugin"],
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
-  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+
   "parserOptions": {
     "ecmaVersion": 2020,
     "ecmaFeatures": {
       "jsx": true
-    },
-    "project": ["tsconfig.json"]
+    }
   },
   "settings": {
     "react": {
@@ -37,8 +40,18 @@
     }
   },
   "rules": {
-    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/member-delimiter-style": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/ban-types": "off",
     "no-param-reassign": "off",
     "no-console": "off",
     "jsx-a11y/no-autofocus": "off",
@@ -78,12 +91,7 @@
     "react/sort-prop-types": "error",
     "react/prop-types": "off",
     "@typescript-eslint/no-shadow": "off",
-    "semi": "off",
-    "@typescript-eslint/semi": "off",
-    "react-hooks/exhaustive-deps": "error",
-    "comma-dangle": "off",
-    "@typescript-eslint/comma-dangle": 0,
-    "import/no-named-as-default": "off"
+    "react-hooks/exhaustive-deps": "error"
   },
   "overrides": [
     {
