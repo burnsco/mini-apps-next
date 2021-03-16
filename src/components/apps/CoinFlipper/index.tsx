@@ -13,13 +13,12 @@ import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
 import { setTimeout } from 'timers'
 
-const CoinFlipApp = () => {
+function CoinFlipApp() {
   const [generating, { toggle }] = useToggle()
   const [numBalls, setNumBalls] = useState(7)
 
   const handleBalls = (e: any) => setNumBalls(e.target.value)
-
-  function renderBalls(numberOfBalls: number) {
+  const renderBalls = (numberOfBalls: number) => {
     const balls = []
     for (let i = 0; i <= numberOfBalls; i++) {
       const coin = Math.floor(Math.random() * Math.floor(2) + 1)
