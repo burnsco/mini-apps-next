@@ -1,3 +1,4 @@
+import { gql, useQuery } from '@apollo/client'
 import {
   Checkbox,
   Editable,
@@ -44,10 +45,19 @@ function ListItemTogglePacked(item: LuggageItem) {
   )
 }
 
-export default function LuggageTrackerList(props: any) {
+export default function LuggageTrackerList() {
+  const {
+    data: { items }
+  } = useQuery(
+    gql`
+      query GetAllItemsQuery {
+        items @client
+      }
+    `
+  )
   return (
     <List mt={4}>
-      {props.items.map((item: any) => (
+      {items.map((item: any) => (
         <ListItem key={`list item-${item.id}-${item.completed}`}>
           <HStack>
             <ListItemTogglePacked {...item} />

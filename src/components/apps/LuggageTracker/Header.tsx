@@ -1,15 +1,14 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { useReactiveVar } from '@apollo/client'
+import { Center, Heading } from '@chakra-ui/react'
 import { itemsVar } from './cache'
 
-const allItemsCount = [...itemsVar()].length
-
-const LuggageTrackerHeader = () => (
-  <Box>
-    <Heading>Luggage</Heading>
-    <Text>
-      ({allItemsCount}) - {allItemsCount > 2 ? 'items' : 'item'}
-    </Text>
-  </Box>
-)
+const LuggageTrackerHeader = () => {
+  const itemsCount = useReactiveVar(itemsVar).length
+  return (
+    <Center>
+      <Heading>Luggage Tracker ({itemsCount})</Heading>
+    </Center>
+  )
+}
 
 export default LuggageTrackerHeader
