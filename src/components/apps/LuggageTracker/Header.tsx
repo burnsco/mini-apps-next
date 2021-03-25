@@ -6,7 +6,7 @@ const LuggageTrackerHeader = () => {
   const itemsCount = useReactiveVar(itemsVar).length
   return (
     <Center>
-      <Heading>Luggage Tracker ({itemsCount})</Heading>
+      <Heading my={3}>Luggage Tracker ({itemsCount})</Heading>
     </Center>
   )
 }

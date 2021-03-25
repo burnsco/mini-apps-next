@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 import {
+  Button,
   Checkbox,
   Editable,
   EditableInput,
@@ -56,15 +57,26 @@ export default function LuggageTrackerList() {
     `
   )
   return (
-    <List mt={4}>
-      {items.map((item: any) => (
-        <ListItem key={`list item-${item.id}-${item.completed}`}>
-          <HStack>
-            <ListItemTogglePacked {...item} />
-            <ListItemEditControls {...item} />
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <List mt={4}>
+        {items.map((item: any) => (
+          <ListItem key={`list item-${item.id}-${item.completed}`}>
+            <HStack>
+              <ListItemTogglePacked {...item} />
+              <ListItemEditControls {...item} />
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+      <Button
+        onClick={() => {
+          itemsVar([...itemsVar().filter(item => !item.completed)])
+        }}
+        size='xs'
+        colorScheme='telegram'
+      >
+        Clear Completed
+      </Button>
+    </>
   )
 }

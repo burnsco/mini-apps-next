@@ -8,7 +8,7 @@ const LuggageTracker = () => {
   return (
     <Container>
       <LuggageTrackerHeader />
-      <Stack p={3} shadow='lg' borderWidth='1px'>
+      <Stack p={4} shadow='lg' borderWidth='1px'>
         <LuggageTrackerInput />
         <LuggageTrackerFilters />
         <LuggageTrackerListView />
