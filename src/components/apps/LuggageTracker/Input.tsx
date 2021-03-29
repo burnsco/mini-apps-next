@@ -31,7 +31,7 @@ const LuggageTrackerInput: FC<{}> = () => {
           onChange={e => setInput(e.target.value)}
         />
         <InputRightElement width='4.5rem'>
-          <Button type='submit' h='1.75rem' size='sm' onClick={handleClick}>
+          <Button type='submit' h='1.75rem' size='md' onClick={handleClick}>
             Submit
           </Button>
         </InputRightElement>

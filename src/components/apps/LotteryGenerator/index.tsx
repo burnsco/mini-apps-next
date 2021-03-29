@@ -26,6 +26,7 @@ function LotterNumberGeneratorPage() {
     for (let i = 0; i <= numBalls; i++) {
       balls.push(
         <Badge
+          animation='ease-in-out'
           key={`ball-${i}`}
           sx={{
             display: 'flex',
