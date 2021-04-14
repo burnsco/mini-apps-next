@@ -1,6 +1,5 @@
-import { Box, Center, Image, Text } from '@chakra-ui/react'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { NextChakraLink } from 'src/components/common/index'
+import SingleUserPage from '../singleUser'
 
 type User = {
   id: number
@@ -46,27 +45,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function MonsterPage(user: User) {
-  return (
-    <Center>
-      <Box
-        key={user.id}
-        maxW='sm'
-        borderWidth='1px'
-        borderRadius='lg'
-        overflow='hidden'
-        rounded='sm'
-        bg='white'
-        shadow='lg'
-      >
-        <Image
-          alt={`image-${user.name}`}
-          src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
-        />
-        <Text>{user.name}</Text>
-        <Text>{user.email}</Text>
-        <Text>{user.website}</Text>
-      </Box>
-      <NextChakraLink href='/monsters'> Go Back</NextChakraLink>
-    </Center>
-  )
+  return <SingleUserPage {...user} />
 }

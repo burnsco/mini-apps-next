@@ -1,6 +1,5 @@
-import { Box, Center, Image, Text, useColorModeValue } from '@chakra-ui/react'
-import { NextChakraLink } from '@common/index'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import SingleUserPage from './singleUser'
 
 type User = {
   id: number
@@ -44,40 +43,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function MonsterPage(user: User) {
-  const borderColor = useColorModeValue('gray.100', '#313131')
-  const hoverColor = useColorModeValue('gray.200', 'gray.600')
-  const color = useColorModeValue('#202020', 'whitesmoke')
-  const bg = useColorModeValue('whitesmoke', '#202020')
-  return (
-    <Center>
-      <Box
-        key={user.id}
-        maxW='sm'
-        bg={bg}
-        color={color}
-        borderColor={borderColor}
-        borderWidth='1px'
-        borderRadius='lg'
-        overflow='hidden'
-        shadow='md'
-        _hover={{
-          boxShadow: 'md',
-          borderWidth: '1px',
-          borderColor: hoverColor
-        }}
-        rounded='sm'
-      >
-        <Image
-          alt={`image-${user.name}`}
-          src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
-        />
-        <Text>{user.name}</Text>
-        <Text>{user.email}</Text>
-        <Text>{user.website}</Text>
-      </Box>
-      <Box ml={2}>
-        <NextChakraLink href='/data-fetch'> Go Back</NextChakraLink>
-      </Box>
-    </Center>
-  )
+  return <SingleUserPage {...user} />
 }
