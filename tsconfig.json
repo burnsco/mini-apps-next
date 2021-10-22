@@ -19,11 +19,11 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@apps/*": ["src/components/apps/*"],
-      "@common/*": ["src/components/common/*"],
-      "@ui/*": ["src/components/ui/*"],
-      "@pages/*": ["src/pages/*"],
-      "@utils/*": ["src/utils/*"]
+      "@apps/*": ["components/apps/*"],
+      "@common/*": ["components/common/*"],
+      "@ui/*": ["components/ui/*"],
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],

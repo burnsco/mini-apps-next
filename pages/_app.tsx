@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { Layout } from 'src/components/ui/index'
+import Layout from '../components/ui/Layout/index'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

@@ -10,9 +10,9 @@ import {
   useColorMode,
   useColorModeValue
 } from '@chakra-ui/react'
+import AppMenuIcon from '@common/Icons/AppMenu'
 import { useRouter } from 'next/dist/client/router'
 import { FaMoon, FaSun } from 'react-icons/fa'
-import AppMenuIcon from 'src/components/common/Icons/AppMenu'
 
 const links = [
   { id: 'app-index', title: 'Home', path: '/', icon: '🏠' },
