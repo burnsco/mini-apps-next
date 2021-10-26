@@ -18,6 +18,12 @@ const links = [
   { id: 'app-index', title: 'Home', path: '/', icon: '🏠' },
 
   { id: 'dice-game', title: 'Dice Roll', path: '/dice/', icon: '🎲' },
+  {
+    id: 'calculator',
+    title: 'Calculator',
+    path: '/calculator/',
+    icon: '🧮'
+  },
 
   {
     id: 'lottery-generator',

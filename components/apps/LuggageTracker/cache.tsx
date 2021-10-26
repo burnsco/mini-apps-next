@@ -22,12 +22,10 @@ const filters: VisibilityFilters = [
   }
 ]
 
-export const itemsVar: ReactiveVar<LuggageItems> = makeVar<LuggageItems>(
-  initialState
-)
-export const visibilityFiltersVar: ReactiveVar<VisibilityFilters> = makeVar<VisibilityFilters>(
-  filters
-)
+export const itemsVar: ReactiveVar<LuggageItems> =
+  makeVar<LuggageItems>(initialState)
+export const visibilityFiltersVar: ReactiveVar<VisibilityFilters> =
+  makeVar<VisibilityFilters>(filters)
 export const activeFilterVar: ReactiveVar<VisibilityFilter> = makeVar({
   id: 'show_all',
   displayName: 'All'
