@@ -8,7 +8,7 @@ RUN yarn install --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM node:14-alpine AS builder
-WORKDIR /app
+WORKDIR /apps
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN yarn build
