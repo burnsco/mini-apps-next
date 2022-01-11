@@ -53,7 +53,19 @@ const links = [
     icon: '👹'
   },
 
-  { id: 'coin-flip', title: 'Flip Coin', path: '/coins/', icon: '🪙' }
+  { id: 'coin-flip', title: 'Flip Coin', path: '/coins/', icon: '🪙' },
+  {
+    id: 'tictactoe',
+    title: 'Tic-Tac-Toe',
+    path: '/tictactoe/',
+    icon: '🧮'
+  },
+  {
+    id: 'pokemon',
+    title: 'pokemon',
+    path: '/pokemon/',
+    icon: '🧮'
+  }
 ]
 
 export default function HeaderContentNav() {
