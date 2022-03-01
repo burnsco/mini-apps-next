@@ -63,6 +63,8 @@ function DiceRoll() {
     return tiles
   }
 
+  console.log(`testing config`)
+
   const Test = motion(Box)
 
   return (
