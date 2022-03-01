@@ -24,6 +24,8 @@ function DiceRoll() {
   })
   const [data, setData] = useState<CurrentGame[]>([])
 
+  console.log('test')
+
   function handleRoll() {
     toggle()
 
