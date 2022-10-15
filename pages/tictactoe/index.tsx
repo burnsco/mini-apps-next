@@ -49,7 +49,7 @@ export default function TicTacToe() {
 
   const CenteredGridItem = (props: CenteredGridItemProps) => (
     <GridItem
-      bg='#afd275'
+      bg='blue.200'
       w='120px'
       h='120px'
       boxShadow={boxShadow}
