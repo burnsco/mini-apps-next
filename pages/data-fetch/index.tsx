@@ -8,7 +8,7 @@ export const getStaticProps: GetStaticProps = async () => {
     'https://jsonplaceholder.typicode.com/users?_page=1'
   )
 
-  const data = await response.json()
+  const data = response.json()
 
   return {
     props: {

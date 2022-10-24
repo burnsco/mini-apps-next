@@ -44,16 +44,11 @@ export default function TicTacToe() {
   const [history, setHistory] = useState([])
   const winner = calculateWinner(gameboard)
 
-  const boxShadow = `12px 12px 16px 0 rgba(0, 0, 0, 0.25),
-    -8px -8px 12px 0 rgba(255, 255, 255, 0.3)`
-
   const CenteredGridItem = (props: CenteredGridItemProps) => (
     <GridItem
-      bg='blue.200'
       w='120px'
       h='120px'
-      boxShadow={boxShadow}
-      borderRadius='15px'
+      border='2px solid orange'
       index={props.index}
       {...props}
       onClick={() => {
@@ -81,7 +76,7 @@ export default function TicTacToe() {
   )
 
   return (
-    <Container bg='#afd275' borderRadius='3xl' p='3'>
+    <Container>
       <Button
         variant='solid'
         colorScheme='facebook'
