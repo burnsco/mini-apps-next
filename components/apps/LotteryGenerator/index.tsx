@@ -7,7 +7,6 @@ import {
   Input,
   VStack
 } from '@chakra-ui/react'
-import FlexContainer from '@common/Containers/FlexContainer'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
 import { setTimeout } from 'timers'
@@ -57,29 +56,27 @@ function LotterNumberGeneratorPage() {
   }
 
   return (
-    <Container minW='md'>
-      <FlexContainer w='full' boxShadow='2xl' h='full' borderRadius='lg'>
-        <Button
-          borderBottomRadius='none'
-          width='full'
-          colorScheme='orange'
-          isDisabled={generating}
-          leftIcon={<GiRollingDiceCup />}
-          size='md'
-          onClick={rollDice}
-        >
-          {generating ? 'Generating' : 'Generate Numbers'}
-        </Button>
+    <Container border='2px solid red'>
+      <Button
+        borderBottomRadius='none'
+        width='full'
+        colorScheme='orange'
+        isDisabled={generating}
+        leftIcon={<GiRollingDiceCup />}
+        size='md'
+        onClick={rollDice}
+      >
+        {generating ? 'Generating' : 'Generate Numbers'}
+      </Button>
 
-        <VStack spacing={4} p={5} minW='lg'>
-          <FormLabel># of Balls</FormLabel>
-          <Input type='number' onChange={handleBalls} value={numBalls} />
-          <FormLabel># Limit</FormLabel>
-          <Input type='number' onChange={handleLimit} value={numLimit} />
+      <VStack spacing={4} p={5}>
+        <FormLabel># of Balls</FormLabel>
+        <Input type='number' onChange={handleBalls} value={numBalls} />
+        <FormLabel># Limit</FormLabel>
+        <Input type='number' onChange={handleLimit} value={numLimit} />
 
-          <HStack>{renderBalls()}</HStack>
-        </VStack>
-      </FlexContainer>
+        <HStack>{renderBalls()}</HStack>
+      </VStack>
     </Container>
   )
 }
