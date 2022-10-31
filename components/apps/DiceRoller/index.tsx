@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  ButtonGroup,
   Flex,
   Heading,
   HStack,
@@ -24,8 +25,6 @@ function DiceRoll() {
   })
   const [data, setData] = useState<CurrentGame[]>([])
 
-  console.log('test')
-
   function handleRoll() {
     toggle()
 
@@ -42,6 +41,18 @@ function DiceRoll() {
         roll: currentGameData.roll
       }
     ])
+    toggle()
+  }
+
+  function handleReset() {
+    toggle()
+
+    setCurrentGameData({
+      number: 1,
+      roll: [0, 0]
+    })
+
+    setData([])
     toggle()
   }
 
@@ -80,14 +91,26 @@ function DiceRoll() {
           borderTop='2px solid black'
           borderBottom='2px solid black'
         >
-          <Button
-            isDisabled={rolling}
-            leftIcon={<GiRollingDiceCup />}
-            size='lg'
-            onClick={() => handleRoll()}
-          >
-            Roll Dice
-          </Button>
+          <ButtonGroup>
+            <Button
+              colorScheme='linkedin'
+              isDisabled={rolling}
+              leftIcon={<GiRollingDiceCup />}
+              size='lg'
+              onClick={() => handleRoll()}
+            >
+              Roll Dice
+            </Button>
+            <Button
+              colorScheme='red'
+              isDisabled={rolling}
+              leftIcon={<GiRollingDiceCup />}
+              size='lg'
+              onClick={() => handleReset()}
+            >
+              Reset
+            </Button>
+          </ButtonGroup>
           <Spacer />
           <HStack>
             <Test
