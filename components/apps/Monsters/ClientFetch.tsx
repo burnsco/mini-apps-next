@@ -32,7 +32,7 @@ export default function MonstersClient() {
 
   const [input, setInput] = useState('')
 
-  let filteredUsers
+  let filteredUsers: User[] | null
 
   if (data) {
     filteredUsers = data.filter((user: User) =>
@@ -48,13 +48,13 @@ export default function MonstersClient() {
         <Text>Using SWR</Text>
         <ButtonGroup>
           <Button as='a' href='/data-fetch/monsters-client'>
-            One
+            Client
           </Button>
           <Button as='a' href='/data-fetch/monsters-ssg'>
-            Two
+            SSG
           </Button>
           <Button as='a' href='/data-fetch/monsters-ssr'>
-            Three
+            SSR
           </Button>
         </ButtonGroup>
         <Input

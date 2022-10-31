@@ -1,14 +1,13 @@
 import { GetServerSideProps } from 'next'
 import dynamic from 'next/dynamic'
+import { fetcher } from '../fetcher'
 
 const Monsters = dynamic(() => import('@apps/Monsters/monsters'))
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch(
+  const data = await fetcher(
     'https://jsonplaceholder.typicode.com/users?_page=1'
   )
-
-  const data = await response.json()
 
   if (!data) {
     return {

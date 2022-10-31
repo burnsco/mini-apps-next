@@ -22,13 +22,13 @@ export default function MonstersHeader() {
         </Text>
         <ButtonGroup>
           <Button as='a' href='/data-fetch/monsters-client'>
-            One
+            Client
           </Button>
           <Button as='a' href='/data-fetch/monsters-ssg'>
-            Two
+            SSG
           </Button>
           <Button as='a' href='/data-fetch/monsters-ssr'>
-            Three
+            SSR
           </Button>
         </ButtonGroup>
         <Input
