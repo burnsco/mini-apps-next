@@ -50,10 +50,7 @@ export default function SingleUserPage(user: User) {
         <Text>{user.website}</Text>
       </Box>
       <Box ml={2}>
-        <Button onClick={() => router.back()} href='/data-fetch'>
-          {' '}
-          Go Back
-        </Button>
+        <Button onClick={() => router.back()}> Go Back</Button>
       </Box>
     </Center>
   )
