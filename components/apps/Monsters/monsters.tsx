@@ -12,12 +12,10 @@ import {
   useColorModeValue,
   VStack
 } from '@chakra-ui/react'
-import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Monsters(props: any) {
-  const router = useRouter()
-
   const borderColor = useColorModeValue('gray.100', '#313131')
   const hoverColor = useColorModeValue('gray.200', 'gray.600')
   const color = useColorModeValue('#202020', 'whitesmoke')
@@ -64,44 +62,49 @@ export default function Monsters(props: any) {
           w='full'
         >
           {filteredUsers.map((user: User) => (
-            <Box
-              onClick={() => router.push(`/data-fetch/${user.id}`)}
-              bg={bg}
-              color={color}
-              borderColor={borderColor}
-              key={user.id}
-              maxW='sm'
-              borderWidth='1px'
-              borderRadius='lg'
-              overflow='hidden'
-              shadow='md'
-              _hover={{
-                boxShadow: 'md',
-                borderWidth: '1px',
-                borderColor: hoverColor
-              }}
+            <Link
+              key={`monsterUser-${user.id}`}
+              href='/data-fetch/[id]'
+              as={`/data-fetch/${user.id}`}
             >
-              <Center>
-                <Image
-                  loading='eager'
-                  src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
-                  alt={`image-${user.name}`}
-                />
-              </Center>
+              <Box
+                bg={bg}
+                color={color}
+                borderColor={borderColor}
+                key={user.id}
+                maxW='sm'
+                borderWidth='1px'
+                borderRadius='lg'
+                overflow='hidden'
+                shadow='md'
+                _hover={{
+                  boxShadow: 'md',
+                  borderWidth: '1px',
+                  borderColor: hoverColor
+                }}
+              >
+                <Center>
+                  <Image
+                    loading='eager'
+                    src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
+                    alt={`image-${user.name}`}
+                  />
+                </Center>
 
-              <Box p={4}>
-                <Text>
-                  <em>Name:</em> {user.name}
-                </Text>
-                <Text>
-                  <em>Email: </em>
-                  {user.email}
-                </Text>
-                <Text>
-                  <em>Website:</em> {user.website}
-                </Text>
+                <Box p={4}>
+                  <Text>
+                    <em>Name:</em> {user.name}
+                  </Text>
+                  <Text>
+                    <em>Email: </em>
+                    {user.email}
+                  </Text>
+                  <Text>
+                    <em>Website:</em> {user.website}
+                  </Text>
+                </Box>
               </Box>
-            </Box>
+            </Link>
           ))}
         </SimpleGrid>
       </section>
