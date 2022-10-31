@@ -1,5 +1,5 @@
+import { getData } from '@pages/data-fetch/fetch'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { fetcher } from '../fetcher'
 import SingleUserPage from '../singleUser'
 
 type User = {
@@ -10,9 +10,15 @@ type User = {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const userList = await fetcher(
+  const response = await getData(
     'https://jsonplaceholder.typicode.com/users?_page=1'
   )
+  if (!response) {
+    return null
+  }
+
+  const userList = await response.json()
+
   return {
     paths: userList.map((user: any) => ({
       params: {
@@ -24,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const user = await fetcher(
+  const user = await getData(
     `https://jsonplaceholder.typicode.com/users/${params?.id}`
   )
   return {

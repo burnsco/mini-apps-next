@@ -10,9 +10,13 @@ type User = {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const userList = await fetcher(
-    'https://jsonplaceholder.typicode.com/users?_page=1'
-  )
+  const res = await fetch('https://jsonplaceholder.typicode.com/users?_page=1')
+  if (!res) {
+    return null
+  }
+
+  const userList = await res.json()
+
   return {
     paths: userList.map((user: any) => ({
       params: {

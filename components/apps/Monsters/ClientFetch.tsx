@@ -8,21 +8,24 @@ import {
   Image,
   Input,
   SimpleGrid,
-  Skeleton,
   Text,
   useColorModeValue,
   VStack
 } from '@chakra-ui/react'
-import { fetcher } from '@utils/fetcher'
 import { useRouter } from 'next/dist/client/router'
-import { useState } from 'react'
-import useSWR from 'swr'
+import { useEffect, useState } from 'react'
+
+async function getData() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users?_page=1')
+  return res.json()
+}
 
 export default function MonstersClient() {
-  const { data } = useSWR(
-    'https://jsonplaceholder.typicode.com/users?_page=1',
-    fetcher
-  )
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    getData().then(res => setData(res))
+  }, [data])
 
   const router = useRouter()
 
@@ -66,7 +69,7 @@ export default function MonstersClient() {
         />
       </VStack>
       <section>
-        <Skeleton isLoaded={data}>
+        <>
           <SimpleGrid
             className='simple-grid-shop'
             columns={[1, 2, 3]}
@@ -117,7 +120,7 @@ export default function MonstersClient() {
                 ))
               : null}
           </SimpleGrid>
-        </Skeleton>
+        </>
       </section>
     </Container>
   )
