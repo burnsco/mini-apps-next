@@ -12,7 +12,7 @@ import FlexContainer from '@common/Containers/FlexContainer'
 import getRandomInt from '@utils/getRandomInt'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { GiRollingDiceCup } from 'react-icons/gi'
+import { GiRabbitHead, GiRollingDiceCup } from 'react-icons/gi'
 import { useToggle } from '../../../utils/useToggle'
 import DiceTable from './dice-table'
 import RenderDie from './renderDice'
@@ -104,8 +104,9 @@ function DiceRoll() {
             <Button
               colorScheme='red'
               isDisabled={rolling}
-              leftIcon={<GiRollingDiceCup />}
-              size='lg'
+              leftIcon={<GiRabbitHead />}
+              size='sm'
+              variant='outline'
               onClick={() => handleReset()}
             >
               Reset

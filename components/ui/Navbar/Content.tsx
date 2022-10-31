@@ -59,12 +59,6 @@ const links = [
     title: 'Tic-Tac-Toe',
     path: '/tictactoe/',
     icon: '🧮'
-  },
-  {
-    id: 'pokemon',
-    title: 'pokemon',
-    path: '/pokemon/',
-    icon: '🧮'
   }
 ]
 
