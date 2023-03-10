@@ -7,10 +7,10 @@ import {
   Input,
   VStack
 } from '@chakra-ui/react'
+import { useToggle } from '@utils/useToggle'
 import { useState } from 'react'
 import { GiRollingDiceCup } from 'react-icons/gi'
 import { setTimeout } from 'timers'
-import { useToggle } from '../../../utils/useToggle'
 
 function LotterNumberGeneratorPage() {
   const [generating, { toggle }] = useToggle()
