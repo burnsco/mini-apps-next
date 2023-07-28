@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { fetcher } from '../fetcher'
 import SingleUserPage from '../singleUser'
 
 type User = {
@@ -28,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const user = await fetcher(
+  const user = await fetch(
     `https://jsonplaceholder.typicode.com/users/${params?.id}`
   )
 
