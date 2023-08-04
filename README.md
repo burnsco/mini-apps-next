@@ -1,3 +1,4 @@
-## Portfolio
+### Mini Apps
 
-# Moving my gatsby js portfolio over to ts and nextjs
+A place to put little apps made along the way, that are to small for their own
+repository.
