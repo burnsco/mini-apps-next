@@ -37,7 +37,7 @@
     ]
   },
   "dependencies": {
-    "@apollo/client": "^3.8.7",
+    "@apollo/client": "^3.8.8",
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
     "@chakra-ui/theme-tools": "2.0.18",
@@ -45,7 +45,7 @@
     "@emotion/styled": "11.11.0",
     "@types/uuid": "^9.0.7",
     "eslint-config-next": "^13.5.6",
-    "framer-motion": "^10.16.5",
+    "framer-motion": "^10.16.16",
     "graphql": "^16.8.1",
     "mathjs": "^11.12.0",
     "next": "^13.5.6",
@@ -58,12 +58,12 @@
   },
   "devDependencies": {
     "@favware/graphql-pokemon": "^7.3.4",
-    "@types/node": "^20.9.4",
-    "@types/react": "^18.2.38",
+    "@types/node": "^20.10.4",
+    "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "eslint": "^8.54.0",
+    "eslint": "^8.55.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^8.10.0",
     "eslint-import-resolver-alias": "^1.1.2",
