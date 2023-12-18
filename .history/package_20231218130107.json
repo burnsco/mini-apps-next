@@ -12,12 +12,7 @@
     "url": "https://https://github.com/burnsco/mini-apps-next.git"
   },
   "license": "MIT",
-  "keywords": [
-    "react",
-    "next.js",
-    "chakra-ui",
-    "typescript"
-  ],
+  "keywords": ["react", "next.js", "chakra-ui", "typescript"],
   "scripts": {
     "dev": "next -p 3004",
     "build": "next build",
@@ -31,10 +26,7 @@
     "lint": "eslint . --ext ts --ext tsx --ext js"
   },
   "lint-staged": {
-    "*.@(ts|tsx)": [
-      "pnpm run lint",
-      "pnpm run format"
-    ]
+    "*.@(ts|tsx)": ["pnpm run lint", "pnpm run format"]
   },
   "dependencies": {
     "@apollo/client": "^3.8.8",
@@ -80,30 +72,15 @@
   },
   "next-unused": {
     "alias": {
-      "@apps/*": [
-        "src/components/apps/*"
-      ],
-      "@common/*": [
-        "src/components/common/*"
-      ],
-      "@ui/*": [
-        "src/components/ui/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ]
+      "@apps/*": ["src/components/apps/*"],
+      "@common/*": ["src/components/common/*"],
+      "@ui/*": ["src/components/ui/*"],
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "debug": true,
-    "include": [
-      "components",
-      "pages"
-    ],
+    "include": ["components", "pages"],
     "exclude": [],
-    "entrypoints": [
-      "pages"
-    ]
+    "entrypoints": ["pages"]
   }
 }
