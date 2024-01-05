@@ -45,7 +45,7 @@
     "@emotion/styled": "11.11.0",
     "@types/uuid": "^9.0.7",
     "eslint-config-next": "latest",
-    "framer-motion": "^10.17.6",
+    "framer-motion": "^10.17.9",
     "graphql": "^16.8.1",
     "mathjs": "^11.12.0",
     "next": "latest",
