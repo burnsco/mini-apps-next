@@ -49,13 +49,11 @@ function ListItemTogglePacked(item: LuggageItem) {
 export default function LuggageTrackerList() {
   const {
     data: { items }
-  } = useQuery(
-    gql`
-      query GetAllItemsQuery {
-        items @client
-      }
-    `
-  )
+  } = useQuery(gql`
+    query GetAllItemsQuery {
+      items @client
+    }
+  `)
   return (
     <>
       <List mt={4}>
